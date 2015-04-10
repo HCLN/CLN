@@ -10,6 +10,7 @@
 #import "DiscountTableViewCell.h"
 
 @interface ViewController ()
+@property (strong, nonatomic) IBOutlet UIView *categoriesView;
 
 @end
 
@@ -17,17 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo-Club-La-Nacion-Blanco.png"]];
 
-    //    UINavigationBar *navigationBar = self.navigationController.navigationBar;
-    //
-    //    [navigationBar setBackgroundImage:[UIImage imageNamed:@"NavigationBarBackground"]
-    //                       forBarPosition:UIBarPositionAny
-    //                           barMetrics:UIBarMetricsDefault];
-    //
-    //    [navigationBar setShadowImage:[UIImage new]];
-
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 190, 44)];
     searchBar.delegate = self;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
 
@@ -35,6 +27,9 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.frame = CGRectMake(50, 0, 89, 60);
     [self.navigationController.navigationBar addSubview:imageView];
+
+    self.categoriesView.layer.cornerRadius = 5;
+    self.categoriesView.layer.masksToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {

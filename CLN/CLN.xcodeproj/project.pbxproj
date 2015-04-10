@@ -23,7 +23,7 @@
 		8B01982C1AD887E1001CC463 /* Logo-Club-La-Nacion-Blanco.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0198281AD887E1001CC463 /* Logo-Club-La-Nacion-Blanco.png */; };
 		8B01982D1AD887E1001CC463 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0198291AD887E1001CC463 /* menu.png */; };
 		8B01982E1AD887E1001CC463 /* notification_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B01982A1AD887E1001CC463 /* notification_icon.png */; };
-		8B01982F1AD887E1001CC463 /* star_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B01982B1AD887E1001CC463 /* star_icon.png */; };
+		8B0198331AD898C6001CC463 /* star_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0198321AD898C6001CC463 /* star_icon@2x.png */; };
 		8BA947341AD84DF0002D4830 /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 8BA947331AD84DF0002D4830 /* .clang-format */; };
 		8BA947371AD854D6002D4830 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA947361AD854D6002D4830 /* SettingsViewController.m */; };
 		8BA9473A1AD857B5002D4830 /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA947391AD857B5002D4830 /* SettingsTableViewCell.m */; };
@@ -68,7 +68,7 @@
 		8B0198281AD887E1001CC463 /* Logo-Club-La-Nacion-Blanco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-Club-La-Nacion-Blanco.png"; sourceTree = "<group>"; };
 		8B0198291AD887E1001CC463 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		8B01982A1AD887E1001CC463 /* notification_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_icon.png; sourceTree = "<group>"; };
-		8B01982B1AD887E1001CC463 /* star_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_icon.png; sourceTree = "<group>"; };
+		8B0198321AD898C6001CC463 /* star_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_icon@2x.png"; sourceTree = "<group>"; };
 		8BA947331AD84DF0002D4830 /* .clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		8BA947351AD854D6002D4830 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		8BA947361AD854D6002D4830 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -212,10 +212,10 @@
 		8B0198271AD887E1001CC463 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8B0198321AD898C6001CC463 /* star_icon@2x.png */,
 				8B0198281AD887E1001CC463 /* Logo-Club-La-Nacion-Blanco.png */,
 				8B0198291AD887E1001CC463 /* menu.png */,
 				8B01982A1AD887E1001CC463 /* notification_icon.png */,
-				8B01982B1AD887E1001CC463 /* star_icon.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -304,12 +304,12 @@
 			files = (
 				63576FE01AD84085004B7033 /* Main.storyboard in Resources */,
 				8B01982C1AD887E1001CC463 /* Logo-Club-La-Nacion-Blanco.png in Resources */,
-				8B01982F1AD887E1001CC463 /* star_icon.png in Resources */,
 				8B01982D1AD887E1001CC463 /* menu.png in Resources */,
 				63576FE51AD84085004B7033 /* LaunchScreen.xib in Resources */,
 				8BA947341AD84DF0002D4830 /* .clang-format in Resources */,
 				8B01982E1AD887E1001CC463 /* notification_icon.png in Resources */,
 				63576FE21AD84085004B7033 /* Images.xcassets in Resources */,
+				8B0198331AD898C6001CC463 /* star_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CLN/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -505,6 +506,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CLN/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
