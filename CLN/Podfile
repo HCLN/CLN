@@ -3,6 +3,8 @@
 
 target 'CLN' do
     pod 'AsyncImageView'
+    pod 'MFSideMenu'
+    pod 'AFNetworking', '~> 2.2'
 end
 
 target 'CLNTests' do
