@@ -14,6 +14,9 @@
 		63576FE21AD84085004B7033 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63576FE11AD84085004B7033 /* Images.xcassets */; };
 		63576FE51AD84085004B7033 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63576FE31AD84085004B7033 /* LaunchScreen.xib */; };
 		63576FF11AD84085004B7033 /* CLNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FF01AD84085004B7033 /* CLNTests.m */; };
+		63EB16E71AD8469100E75869 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E61AD8469100E75869 /* CoreLocation.framework */; };
+		63EB16E91AD8469800E75869 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E81AD8469800E75869 /* MapKit.framework */; };
+		63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */; };
 		8BA947341AD84DF0002D4830 /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 8BA947331AD84DF0002D4830 /* .clang-format */; };
 		C2978E7661B330C7623AAA06 /* libPods-CLN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1ADBE981661EDD694C40F6 /* libPods-CLN.a */; };
 /* End PBXBuildFile section */

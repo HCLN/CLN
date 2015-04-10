@@ -27,25 +27,25 @@
 
 #pragma mark - Table
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-  return 1;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView*)tableView
     numberOfRowsInSection:(NSInteger)section {
-  return 10;
+    return 10;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView
         cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-  DiscountTableViewCell* cell = (DiscountTableViewCell*)
-      [tableView dequeueReusableCellWithIdentifier:@"DISCOUNT_CELL"];
-  if (cell) {
-    cell.establishmentLabel.text = @"Musimundo";
-    cell.discountDescriptionLabel.text = @"2x1 en electrodomesticos hasta 20hs";
-    cell.establishmentLogoImageView.imageURL =
-        [NSURL URLWithString:@"http://www.musimundo.com/musica/musimundo.png"];
-  }
-  return cell;
+    DiscountTableViewCell* cell = (DiscountTableViewCell*)
+        [tableView dequeueReusableCellWithIdentifier:@"DISCOUNT_CELL"];
+    if (cell) {
+        cell.establishmentLabel.text = @"Musimundo";
+        cell.discountDescriptionLabel.text = @"2x1 en electrodomesticos hasta 20hs";
+        cell.establishmentLogoImageView.imageURL =
+            [NSURL URLWithString:@"http://www.musimundo.com/musica/musimundo.png"];
+    }
+    return cell;
 }
 
 @end
