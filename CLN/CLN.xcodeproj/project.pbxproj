@@ -14,6 +14,9 @@
 		63576FE21AD84085004B7033 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63576FE11AD84085004B7033 /* Images.xcassets */; };
 		63576FE51AD84085004B7033 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63576FE31AD84085004B7033 /* LaunchScreen.xib */; };
 		63576FF11AD84085004B7033 /* CLNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FF01AD84085004B7033 /* CLNTests.m */; };
+		63EB16E71AD8469100E75869 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E61AD8469100E75869 /* CoreLocation.framework */; };
+		63EB16E91AD8469800E75869 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E81AD8469800E75869 /* MapKit.framework */; };
+		63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */; };
 		C2978E7661B330C7623AAA06 /* libPods-CLN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1ADBE981661EDD694C40F6 /* libPods-CLN.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,10 @@
 		63576FEA1AD84085004B7033 /* CLNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63576FEF1AD84085004B7033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63576FF01AD84085004B7033 /* CLNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CLNTests.m; sourceTree = "<group>"; };
+		63EB16E61AD8469100E75869 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		63EB16E81AD8469800E75869 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		63EB16EC1AD84B2700E75869 /* DiscountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountTableViewCell.h; sourceTree = "<group>"; };
+		63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountTableViewCell.m; sourceTree = "<group>"; };
 		6509297B299BDC060447C27D /* Pods-CLN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLN/Pods-CLN.debug.xcconfig"; sourceTree = "<group>"; };
 		AD737D0693356576FEF93143 /* Pods-CLN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLN.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLN/Pods-CLN.release.xcconfig"; sourceTree = "<group>"; };
 		EF1ADBE981661EDD694C40F6 /* libPods-CLN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +58,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63EB16E91AD8469800E75869 /* MapKit.framework in Frameworks */,
+				63EB16E71AD8469100E75869 /* CoreLocation.framework in Frameworks */,
 				C2978E7661B330C7623AAA06 /* libPods-CLN.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +86,8 @@
 		4624B457BDE53E76A3F17766 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63EB16E81AD8469800E75869 /* MapKit.framework */,
+				63EB16E61AD8469100E75869 /* CoreLocation.framework */,
 				EF1ADBE981661EDD694C40F6 /* libPods-CLN.a */,
 			);
 			name = Frameworks;
@@ -105,10 +116,10 @@
 		63576FD31AD84085004B7033 /* CLN */ = {
 			isa = PBXGroup;
 			children = (
+				63EB16EB1AD84AE000E75869 /* Views */,
+				63EB16EA1AD84AC600E75869 /* ViewControllers */,
 				63576FD81AD84085004B7033 /* AppDelegate.h */,
 				63576FD91AD84085004B7033 /* AppDelegate.m */,
-				63576FDB1AD84085004B7033 /* ViewController.h */,
-				63576FDC1AD84085004B7033 /* ViewController.m */,
 				63576FDE1AD84085004B7033 /* Main.storyboard */,
 				63576FE11AD84085004B7033 /* Images.xcassets */,
 				63576FE31AD84085004B7033 /* LaunchScreen.xib */,
@@ -141,6 +152,24 @@
 				63576FEF1AD84085004B7033 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		63EB16EA1AD84AC600E75869 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				63576FDB1AD84085004B7033 /* ViewController.h */,
+				63576FDC1AD84085004B7033 /* ViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		63EB16EB1AD84AE000E75869 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63EB16EC1AD84B2700E75869 /* DiscountTableViewCell.h */,
+				63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +309,7 @@
 			files = (
 				63576FDD1AD84085004B7033 /* ViewController.m in Sources */,
 				63576FDA1AD84085004B7033 /* AppDelegate.m in Sources */,
+				63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */,
 				63576FD71AD84085004B7033 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
