@@ -17,6 +17,12 @@
 		63EB16E71AD8469100E75869 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E61AD8469100E75869 /* CoreLocation.framework */; };
 		63EB16E91AD8469800E75869 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E81AD8469800E75869 /* MapKit.framework */; };
 		63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */; };
+		63EB16F21AD8634500E75869 /* CLN-Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16F01AD8634500E75869 /* CLN-Model.xcdatamodeld */; };
+		63EB16F51AD864D500E75869 /* Discount.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16F41AD864D500E75869 /* Discount.m */; };
+		63EB16F91AD8745C00E75869 /* URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16F81AD8745B00E75869 /* URLManager.m */; };
+		63EB16FC1AD8770A00E75869 /* CategoryColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63EB16FB1AD8770900E75869 /* CategoryColor.plist */; };
+		63EB16FF1AD878BA00E75869 /* ColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16FE1AD878BA00E75869 /* ColorCategory.m */; };
+		63EB17021AD87B9300E75869 /* SynchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB17011AD87B9300E75869 /* SynchManager.m */; };
 		8BA947341AD84DF0002D4830 /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 8BA947331AD84DF0002D4830 /* .clang-format */; };
 		C2978E7661B330C7623AAA06 /* libPods-CLN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1ADBE981661EDD694C40F6 /* libPods-CLN.a */; };
 /* End PBXBuildFile section */
@@ -49,6 +55,16 @@
 		63EB16E81AD8469800E75869 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		63EB16EC1AD84B2700E75869 /* DiscountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountTableViewCell.h; sourceTree = "<group>"; };
 		63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountTableViewCell.m; sourceTree = "<group>"; };
+		63EB16F11AD8634500E75869 /* CLN-Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CLN-Model.xcdatamodel"; sourceTree = "<group>"; };
+		63EB16F31AD864D500E75869 /* Discount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Discount.h; sourceTree = "<group>"; };
+		63EB16F41AD864D500E75869 /* Discount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Discount.m; sourceTree = "<group>"; };
+		63EB16F71AD8745B00E75869 /* URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManager.h; sourceTree = "<group>"; };
+		63EB16F81AD8745B00E75869 /* URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManager.m; sourceTree = "<group>"; };
+		63EB16FB1AD8770900E75869 /* CategoryColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryColor.plist; sourceTree = "<group>"; };
+		63EB16FD1AD878BA00E75869 /* ColorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorCategory.h; sourceTree = "<group>"; };
+		63EB16FE1AD878BA00E75869 /* ColorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorCategory.m; sourceTree = "<group>"; };
+		63EB17001AD87B9300E75869 /* SynchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynchManager.h; sourceTree = "<group>"; };
+		63EB17011AD87B9300E75869 /* SynchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SynchManager.m; sourceTree = "<group>"; };
 		6509297B299BDC060447C27D /* Pods-CLN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLN/Pods-CLN.debug.xcconfig"; sourceTree = "<group>"; };
 		8BA947331AD84DF0002D4830 /* .clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		AD737D0693356576FEF93143 /* Pods-CLN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLN.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLN/Pods-CLN.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +135,9 @@
 		63576FD31AD84085004B7033 /* CLN */ = {
 			isa = PBXGroup;
 			children = (
+				63EB16FA1AD876E200E75869 /* Util */,
+				63EB16F61AD8742400E75869 /* Services */,
+				63EB16EF1AD8632500E75869 /* Model */,
 				63EB16EB1AD84AE000E75869 /* Views */,
 				63EB16EA1AD84AC600E75869 /* ViewControllers */,
 				63576FD81AD84085004B7033 /* AppDelegate.h */,
@@ -173,6 +192,37 @@
 				63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		63EB16EF1AD8632500E75869 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63EB16F01AD8634500E75869 /* CLN-Model.xcdatamodeld */,
+				63EB16F31AD864D500E75869 /* Discount.h */,
+				63EB16F41AD864D500E75869 /* Discount.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		63EB16F61AD8742400E75869 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				63EB16F71AD8745B00E75869 /* URLManager.h */,
+				63EB16F81AD8745B00E75869 /* URLManager.m */,
+				63EB17001AD87B9300E75869 /* SynchManager.h */,
+				63EB17011AD87B9300E75869 /* SynchManager.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		63EB16FA1AD876E200E75869 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				63EB16FB1AD8770900E75869 /* CategoryColor.plist */,
+				63EB16FD1AD878BA00E75869 /* ColorCategory.h */,
+				63EB16FE1AD878BA00E75869 /* ColorCategory.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +310,7 @@
 				63576FE01AD84085004B7033 /* Main.storyboard in Resources */,
 				63576FE51AD84085004B7033 /* LaunchScreen.xib in Resources */,
 				8BA947341AD84DF0002D4830 /* .clang-format in Resources */,
+				63EB16FC1AD8770A00E75869 /* CategoryColor.plist in Resources */,
 				63576FE21AD84085004B7033 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,10 +362,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63EB17021AD87B9300E75869 /* SynchManager.m in Sources */,
+				63EB16F51AD864D500E75869 /* Discount.m in Sources */,
 				63576FDD1AD84085004B7033 /* ViewController.m in Sources */,
+				63EB16F91AD8745C00E75869 /* URLManager.m in Sources */,
 				63576FDA1AD84085004B7033 /* AppDelegate.m in Sources */,
+				63EB16F21AD8634500E75869 /* CLN-Model.xcdatamodeld in Sources */,
 				63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */,
 				63576FD71AD84085004B7033 /* main.m in Sources */,
+				63EB16FF1AD878BA00E75869 /* ColorCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +577,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		63EB16F01AD8634500E75869 /* CLN-Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63EB16F11AD8634500E75869 /* CLN-Model.xcdatamodel */,
+			);
+			currentVersion = 63EB16F11AD8634500E75869 /* CLN-Model.xcdatamodel */;
+			path = "CLN-Model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 63576FC91AD84085004B7033 /* Project object */;
 }

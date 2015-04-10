@@ -5,6 +5,8 @@ target 'CLN' do
     pod 'AsyncImageView'
     pod 'MFSideMenu'
     pod 'AFNetworking', '~> 2.2'
+    pod 'MagicalRecord'
+    pod 'HexColors'
 end
 
 target 'CLNTests' do

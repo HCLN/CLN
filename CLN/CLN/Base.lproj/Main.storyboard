@@ -35,8 +35,11 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iCi-Z8-ZJm">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="236"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="bS3-Q4-Lpl"/>
+                                </connections>
                             </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tvV-7e-Wgp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tvV-7e-Wgp">
                                 <rect key="frame" x="0.0" y="236" width="600" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -50,7 +53,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yJp-rq-YHH" customClass="AsyncImageView">
-                                                    <rect key="frame" x="15" y="5" width="50" height="50"/>
+                                                    <rect key="frame" x="15" y="10" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="IYR-AM-RrW"/>
                                                         <constraint firstAttribute="height" constant="50" id="Pl4-yZ-fVK"/>
@@ -65,20 +68,20 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tipo + descripcion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amj-Bt-oU7">
-                                                    <rect key="frame" x="72" y="23" width="495" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tipo + descripcion" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Amj-Bt-oU7">
+                                                    <rect key="frame" x="72" y="25" width="495" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="32" id="7AF-pg-jG1"/>
+                                                        <constraint firstAttribute="height" constant="40" id="7AF-pg-jG1"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.23137254901960785" green="0.27843137254901962" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JGX-XS-3A0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="10" height="59"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="7" height="69"/>
                                                     <color key="backgroundColor" red="0.0" green="0.33725490200000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="10" id="NIV-4Q-L9i"/>
+                                                        <constraint firstAttribute="width" constant="7" id="NIV-4Q-L9i"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -129,6 +132,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="TwB-m0-r74"/>
+                    <connections>
+                        <outlet property="discountTable" destination="tvV-7e-Wgp" id="Fg4-26-nLb"/>
+                        <outlet property="mapView" destination="iCi-Z8-ZJm" id="ch0-ew-Iaw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

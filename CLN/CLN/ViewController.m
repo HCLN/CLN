@@ -7,9 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "Discount.h"
 #import "DiscountTableViewCell.h"
 
-@interface ViewController ()
+@interface ViewController () {
+    IBOutlet UITableView* discountTable;
+    IBOutlet MKMapView* mapView;
+
+    NSArray* allDiscounts;
+}
 
 @end
 
@@ -17,12 +23,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    [self initializeMap];
+    [self updateData];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:@"NOTIFICATIONS_HAS_BEEN_UPDATED" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)initializeMap {
+    mapView.delegate = self;
+    [mapView setShowsUserLocation:YES];
+}
+
+- (void)centerMap {
+    //    if (!delegate.lastLocation)
+    //        return;
+    //    [mapView setRegion:MKCoordinateRegionMakeWithDistance(delegate.lastLocation.coordinate, 2000, 2000) animated:YES];
+
+    //    MapAnnotation* ann = [[MapAnnotation alloc] init];
+    //    ann.title = @"Musimundo";
+    //    ann.subtitle = @"2x1 en electrodomesticos";
+    //    ann.coordinate = delegate.lastLocation.coordinate;
+    //
+    //    [mapView removeAnnotations:mapView.annotations];
+    //    [mapView addAnnotation:ann];
+}
+
+- (void)updateData {
+    allDiscounts = [self getAllDiscounts];
+    [discountTable reloadData];
 }
 
 #pragma mark - Table
@@ -32,7 +65,7 @@
 
 - (NSInteger)tableView:(UITableView*)tableView
     numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [allDiscounts count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView
@@ -40,12 +73,13 @@
     DiscountTableViewCell* cell = (DiscountTableViewCell*)
         [tableView dequeueReusableCellWithIdentifier:@"DISCOUNT_CELL"];
     if (cell) {
-        cell.establishmentLabel.text = @"Musimundo";
-        cell.discountDescriptionLabel.text = @"2x1 en electrodomesticos hasta 20hs";
-        cell.establishmentLogoImageView.imageURL =
-            [NSURL URLWithString:@"http://www.musimundo.com/musica/musimundo.png"];
+        [cell configureWithDiscount:[allDiscounts objectAtIndex:indexPath.row]];
     }
     return cell;
+}
+
+- (NSArray*)getAllDiscounts {
+    return [Discount MR_findAll];
 }
 
 @end
