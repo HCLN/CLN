@@ -48,4 +48,14 @@
     return cell;
 }
 
+- (IBAction)toogleSettingsMenu:(id)sender {
+    [[NSNotificationCenter defaultCenter]
+        postNotificationName:@"toogleSettingsMenu"
+                      object:nil];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 @end

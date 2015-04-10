@@ -7,8 +7,13 @@
 //
 
 #import "AppDelegate.h"
+#import "MFSideMenu.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, retain) UIViewController *settingsVC;
+@property (nonatomic, retain) UIViewController *mainVC;
+@property (nonatomic, retain) MFSideMenuContainerViewController *container;
 
 @end
 
@@ -16,8 +21,25 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSettingsMenuButtonTouchUp) name:@"toogleSettingsMenu" object:nil];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    _settingsVC = [storyboard instantiateViewControllerWithIdentifier:@"settingsVC"];
+    _mainVC = [storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+
+    _container = [MFSideMenuContainerViewController
+        containerWithCenterViewController:_mainVC
+                   leftMenuViewController:_settingsVC
+                  rightMenuViewController:nil];
+    self.window.rootViewController = _container;
+    [self.window makeKeyAndVisible];
+
     return YES;
+}
+
+- (void)onSettingsMenuButtonTouchUp {
+    [self.container toggleLeftSideMenuCompletion:^{
+    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

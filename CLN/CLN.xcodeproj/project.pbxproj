@@ -17,7 +17,11 @@
 		63EB16E71AD8469100E75869 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E61AD8469100E75869 /* CoreLocation.framework */; };
 		63EB16E91AD8469800E75869 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E81AD8469800E75869 /* MapKit.framework */; };
 		63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */; };
+		8B0198201AD87751001CC463 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B01981F1AD87751001CC463 /* FavoritesViewController.m */; };
+		8B0198231AD8775B001CC463 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0198221AD8775B001CC463 /* NotificationsViewController.m */; };
 		8BA947341AD84DF0002D4830 /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 8BA947331AD84DF0002D4830 /* .clang-format */; };
+		8BA947371AD854D6002D4830 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA947361AD854D6002D4830 /* SettingsViewController.m */; };
+		8BA9473A1AD857B5002D4830 /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA947391AD857B5002D4830 /* SettingsTableViewCell.m */; };
 		C2978E7661B330C7623AAA06 /* libPods-CLN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1ADBE981661EDD694C40F6 /* libPods-CLN.a */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +54,15 @@
 		63EB16EC1AD84B2700E75869 /* DiscountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscountTableViewCell.h; sourceTree = "<group>"; };
 		63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscountTableViewCell.m; sourceTree = "<group>"; };
 		6509297B299BDC060447C27D /* Pods-CLN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLN.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CLN/Pods-CLN.debug.xcconfig"; sourceTree = "<group>"; };
+		8B01981E1AD87751001CC463 /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		8B01981F1AD87751001CC463 /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		8B0198211AD8775B001CC463 /* NotificationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsViewController.h; sourceTree = "<group>"; };
+		8B0198221AD8775B001CC463 /* NotificationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsViewController.m; sourceTree = "<group>"; };
 		8BA947331AD84DF0002D4830 /* .clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
+		8BA947351AD854D6002D4830 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		8BA947361AD854D6002D4830 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		8BA947381AD857B5002D4830 /* SettingsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewCell.h; sourceTree = "<group>"; };
+		8BA947391AD857B5002D4830 /* SettingsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewCell.m; sourceTree = "<group>"; };
 		AD737D0693356576FEF93143 /* Pods-CLN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CLN.release.xcconfig"; path = "Pods/Target Support Files/Pods-CLN/Pods-CLN.release.xcconfig"; sourceTree = "<group>"; };
 		EF1ADBE981661EDD694C40F6 /* libPods-CLN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CLN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -162,6 +174,12 @@
 			children = (
 				63576FDB1AD84085004B7033 /* ViewController.h */,
 				63576FDC1AD84085004B7033 /* ViewController.m */,
+				8BA947351AD854D6002D4830 /* SettingsViewController.h */,
+				8BA947361AD854D6002D4830 /* SettingsViewController.m */,
+				8B01981E1AD87751001CC463 /* FavoritesViewController.h */,
+				8B01981F1AD87751001CC463 /* FavoritesViewController.m */,
+				8B0198211AD8775B001CC463 /* NotificationsViewController.h */,
+				8B0198221AD8775B001CC463 /* NotificationsViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -171,6 +189,8 @@
 			children = (
 				63EB16EC1AD84B2700E75869 /* DiscountTableViewCell.h */,
 				63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */,
+				8BA947381AD857B5002D4830 /* SettingsTableViewCell.h */,
+				8BA947391AD857B5002D4830 /* SettingsTableViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -312,7 +332,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				63576FDD1AD84085004B7033 /* ViewController.m in Sources */,
+				8B0198231AD8775B001CC463 /* NotificationsViewController.m in Sources */,
 				63576FDA1AD84085004B7033 /* AppDelegate.m in Sources */,
+				8B0198201AD87751001CC463 /* FavoritesViewController.m in Sources */,
+				8BA9473A1AD857B5002D4830 /* SettingsTableViewCell.m in Sources */,
+				8BA947371AD854D6002D4830 /* SettingsViewController.m in Sources */,
 				63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */,
 				63576FD71AD84085004B7033 /* main.m in Sources */,
 			);
