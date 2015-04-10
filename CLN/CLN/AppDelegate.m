@@ -34,6 +34,12 @@
     self.window.rootViewController = _container;
     [self.window makeKeyAndVisible];
 
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
+                                      forBarPosition:UIBarPositionAny
+                                          barMetrics:UIBarMetricsDefault];
+
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+
     return YES;
 }
 

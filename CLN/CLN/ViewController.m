@@ -17,7 +17,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    //    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Logo-Club-La-Nacion-Blanco.png"]];
+
+    //    UINavigationBar *navigationBar = self.navigationController.navigationBar;
+    //
+    //    [navigationBar setBackgroundImage:[UIImage imageNamed:@"NavigationBarBackground"]
+    //                       forBarPosition:UIBarPositionAny
+    //                           barMetrics:UIBarMetricsDefault];
+    //
+    //    [navigationBar setShadowImage:[UIImage new]];
+
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+    searchBar.delegate = self;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
+
+    UIImage *image = [UIImage imageNamed:@"Logo-Club-La-Nacion-Blanco.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = CGRectMake(50, 0, 89, 60);
+    [self.navigationController.navigationBar addSubview:imageView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,18 +43,18 @@
 }
 
 #pragma mark - Table
-- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView*)tableView
+- (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
 
-- (UITableViewCell*)tableView:(UITableView*)tableView
-        cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-    DiscountTableViewCell* cell = (DiscountTableViewCell*)
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DiscountTableViewCell *cell = (DiscountTableViewCell *)
         [tableView dequeueReusableCellWithIdentifier:@"DISCOUNT_CELL"];
     if (cell) {
         cell.establishmentLabel.text = @"Musimundo";

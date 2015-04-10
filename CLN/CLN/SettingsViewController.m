@@ -48,7 +48,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SettingsTableViewCell *cell = (SettingsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SETTINGS_CELL" forIndexPath:indexPath];
     if (cell) {
-        //        [cell.iconoImage setImage:<#(UIImage *)#>
+        if (indexPath.row == 0) {
+            [cell.iconoImage setImage:[UIImage imageNamed:@"star_icon"]];
+        } else {
+            [cell.iconoImage setImage:[UIImage imageNamed:@"notification_icon"]];
+        }
         [cell.settingLabel setText:[options objectAtIndex:indexPath.row]];
     }
     return cell;
