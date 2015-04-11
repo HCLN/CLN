@@ -2,7 +2,18 @@
 <gpx version="1.1" creator="Xcode"> 
 
     <wpt lat="-34.5804974" lon="-58.4086617">
-         <name>CLN</name>
+         <name>Hotel</name>
 	</wpt>
-    
+    <wpt lat="-34.5812027" lon="-58.4208834">
+        <name>Plaza Italia</name>
+    </wpt>
+    <wpt lat="-34.591043" lon="-58.4240318">
+        <name>Juan B Justo y Corrientes</name>
+    </wpt>
+    <wpt lat="-34.603990" lon="-58.410986">
+        <name>Abasto</name>
+    </wpt>
+    <wpt lat="-34.6158527" lon="-58.4333203">
+        <name>Obelisco</name>
+    </wpt>
 </gpx>
