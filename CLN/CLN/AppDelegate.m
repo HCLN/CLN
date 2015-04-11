@@ -87,7 +87,7 @@
         NSString *latitudeSt = [NSString stringWithFormat:@"%f", lastLocation.coordinate.latitude];
         NSString *longitudeSt = [NSString stringWithFormat:@"%f", lastLocation.coordinate.longitude];
 
-        [SynchManager updateWithLatitude:@"-34.580497" Longitude:@"-58.408662" Distance:@"3000"];
+        [SynchManager updateWithLatitude:latitudeSt Longitude:longitudeSt Distance:@"3000"];
     }
 }
 
