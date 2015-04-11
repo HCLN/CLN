@@ -159,7 +159,7 @@
 
     [SynchManager updateWithLatitude:[NSString stringWithFormat:@"%f", location.coordinate.latitude]
                            Longitude:[NSString stringWithFormat:@"%f", location.coordinate.longitude]
-                            Distance:[ratio stringValue]];
+                            Distance:[NSString stringWithFormat:@"%f", [ratio floatValue]]];
 
     [self onBtLocationTouchDown:nil];
 }

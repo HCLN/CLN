@@ -57,7 +57,9 @@
     }
     NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
     if (!ratio) {
-        [[NSUserDefaults standardUserDefaults] setValue:ratio forKey:@"ratio"];
+        [[NSUserDefaults standardUserDefaults] setValue:
+                                                   @300
+                                                 forKey:@"ratio"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
 
@@ -114,7 +116,7 @@
         NSString *longitudeSt = [NSString stringWithFormat:@"%f", lastLocation.coordinate.longitude];
 
         NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
-        [SynchManager updateWithLatitude:latitudeSt Longitude:longitudeSt Distance:[ratio stringValue]];
+        [SynchManager updateWithLatitude:latitudeSt Longitude:longitudeSt Distance:[NSString stringWithFormat:@"%f", [ratio floatValue]]];
     }
 }
 
@@ -124,7 +126,7 @@
     sharedLocationManager = [[CLLocationManager alloc] init];
     sharedLocationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     sharedLocationManager.activityType = CLActivityTypeOtherNavigation;
-    sharedLocationManager.distanceFilter = [ratio floatValue] / 3;
+    sharedLocationManager.distanceFilter = 100;
     return sharedLocationManager;
 }
 

@@ -184,7 +184,7 @@
 
     [SynchManager updateWithLatitude:[NSString stringWithFormat:@"%f", location.coordinate.latitude]
                            Longitude:[NSString stringWithFormat:@"%f", location.coordinate.longitude]
-                            Distance:[ratio stringValue]];
+                            Distance:[NSString stringWithFormat:@"%f", [ratio floatValue]]];
     if (location != nil) {
         [self centerMap:location radius:2000];
         [locationManager stopUpdatingLocation];
