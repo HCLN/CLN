@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "MFSideMenu.h"
 #import "SynchManager.h"
 #import "Discount.h"
 
 @interface AppDelegate () {
-    CLLocationManager* sharedLocationManager;
+    CLLocationManager *sharedLocationManager;
 }
 
 @property (nonatomic, retain) UIViewController *settingsVC;
@@ -22,25 +23,27 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication*)application
-    didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
+- (BOOL)application:(UIApplication *)application
+    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init]
+                                      forBarPosition:UIBarPositionAny
+                                          barMetrics:UIBarMetricsDefault];
+
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    _settingsVC = [storyboard instantiateViewControllerWithIdentifier:@"settingsVC"];
+    _mainVC = [storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
+
+    _container = [MFSideMenuContainerViewController
+        containerWithCenterViewController:_mainVC
+                   leftMenuViewController:_settingsVC
+                  rightMenuViewController:nil];
+    self.window.rootViewController = _container;
+    [self.window makeKeyAndVisible];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSettingsMenuButtonTouchUp) name:@"toogleSettingsMenu" object:nil];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"CLN-Model"];
-
-    //    Discount* d1 = [Discount MR_createEntity];
-    //    d1.identifier = @"ident1";
-    //    d1.category = @"Gastronomia";
-    //    d1.discountCards = @"Classic-Premium";
-    //    d1.discountDescription = @"Sobre el total de tu factura";
-    //    d1.discountType = @"20%";
-    //    d1.startDate = [NSDate date];
-    //    d1.endDate = [NSDate date];
-    //    d1.establishmentName = @"Enogarage";
-    //    d1.notified = [NSNumber numberWithBool:NO];
-    //    d1.pointLatitude = @-34.53449;
-    //    d1.pointLongitude = @-58.46757;
-    //    d1.subCategory = @"Compras Gastronómicas";
-    //    d1.images = @"nombre=50106.jpg:Tipo=7:Great=0-nombre=50107.jpg:Tipo=13:Great=1-nombre=50108.jpg:Tipo=13:Great=0-nombre=50109.jpg:Tipo=13:Great=0-nombre=50110.jpg:Tipo=13:Great=0-nombre=50111.jpg:Tipo=13:Great=0";
-
     [SynchManager update];
 
     [self startLocationManager:launchOptions];
@@ -48,44 +51,44 @@
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication*)application {
+- (void)onSettingsMenuButtonTouchUp {
+    [self.container toggleLeftSideMenuCompletion:^{
+    }];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication*)application {
+-
+    (void)applicationDidEnterBackground:(UIApplication *)application {
     [self stopLocationManager];
     [self startMonitoringLocationChanges];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication*)application {
-}
+- (void)applicationWillEnterForeground:(UIApplication *)application{}
 
-- (void)applicationDidBecomeActive:(UIApplication*)application {
+                                       - (void)
+            applicationDidBecomeActive:(UIApplication *)application {
     [self stopLocationManager];
     [self initLocationManager];
     [self startMonitoringLocationChanges];
 }
 
-- (void)applicationWillTerminate:(UIApplication*)application {
+- (void)applicationWillTerminate:(UIApplication *)application {
     [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
     [MagicalRecord cleanUp];
 }
 
 #pragma mark Location
 
-- (void)locationManager:(CLLocationManager*)manager
-     didUpdateLocations:(NSArray*)locations {
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
     NSLog(@"locationManager didUpdateLocations: %@", locations);
 
     NSUInteger count = [locations count];
     if (count > 0) {
-        CLLocation* newLocation = [locations objectAtIndex:count - 1];
-        _lastLocation = newLocation;
-
         [SynchManager update];
     }
 }
 
-- (CLLocationManager*)sharedLocationManager {
+- (CLLocationManager *)sharedLocationManager {
     sharedLocationManager = [[CLLocationManager alloc] init];
     sharedLocationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     sharedLocationManager.activityType = CLActivityTypeOtherNavigation;
@@ -93,8 +96,8 @@
     return sharedLocationManager;
 }
 
-- (void)startLocationManager:(NSDictionary*)launchOptions {
-    UIAlertView* alert = nil;
+- (void)startLocationManager:(NSDictionary *)launchOptions {
+    UIAlertView *alert = nil;
     if ([[UIApplication sharedApplication] backgroundRefreshStatus] == UIBackgroundRefreshStatusDenied) {
         alert = [[UIAlertView alloc]
                 initWithTitle:@""

@@ -17,6 +17,13 @@
 		63EB16E71AD8469100E75869 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E61AD8469100E75869 /* CoreLocation.framework */; };
 		63EB16E91AD8469800E75869 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63EB16E81AD8469800E75869 /* MapKit.framework */; };
 		63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16ED1AD84B2700E75869 /* DiscountTableViewCell.m */; };
+		8B0198201AD87751001CC463 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B01981F1AD87751001CC463 /* FavoritesViewController.m */; };
+		8B0198231AD8775B001CC463 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0198221AD8775B001CC463 /* NotificationsViewController.m */; };
+		8B0198261AD87A25001CC463 /* FavoritesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0198251AD87A25001CC463 /* FavoritesTableViewCell.m */; };
+		8B01982C1AD887E1001CC463 /* Logo-Club-La-Nacion-Blanco.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0198281AD887E1001CC463 /* Logo-Club-La-Nacion-Blanco.png */; };
+		8B01982D1AD887E1001CC463 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0198291AD887E1001CC463 /* menu.png */; };
+		8B01982E1AD887E1001CC463 /* notification_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B01982A1AD887E1001CC463 /* notification_icon.png */; };
+		8B0198331AD898C6001CC463 /* star_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B0198321AD898C6001CC463 /* star_icon@2x.png */; };
 		63EB16F21AD8634500E75869 /* CLN-Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16F01AD8634500E75869 /* CLN-Model.xcdatamodeld */; };
 		63EB16F51AD864D500E75869 /* Discount.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16F41AD864D500E75869 /* Discount.m */; };
 		63EB16F91AD8745C00E75869 /* URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16F81AD8745B00E75869 /* URLManager.m */; };
@@ -151,6 +158,7 @@
 		63576FD31AD84085004B7033 /* CLN */ = {
 			isa = PBXGroup;
 			children = (
+				8B0198271AD887E1001CC463 /* images */,
 				63EB16FA1AD876E200E75869 /* Util */,
 				63EB16F61AD8742400E75869 /* Services */,
 				63EB16EF1AD8632500E75869 /* Model */,
@@ -251,6 +259,17 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+8B0198271AD887E1001CC463 /* images */ = {
+isa = PBXGroup;
+children = (
+8B0198321AD898C6001CC463 /* star_icon@2x.png */,
+8B0198281AD887E1001CC463 /* Logo-Club-La-Nacion-Blanco.png */,
+8B0198291AD887E1001CC463 /* menu.png */,
+8B01982A1AD887E1001CC463 /* notification_icon.png */,
+);
+path = images;
+sourceTree = "<group>";
+};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -338,6 +357,7 @@
 				8B01982D1AD887E1001CC463 /* menu.png in Resources */,
 				63576FE51AD84085004B7033 /* LaunchScreen.xib in Resources */,
 				8BA947341AD84DF0002D4830 /* .clang-format in Resources */,
+				8B01982E1AD887E1001CC463 /* notification_icon.png in Resources */,
 				63EB16FC1AD8770A00E75869 /* CategoryColor.plist in Resources */,
 				63576FE21AD84085004B7033 /* Images.xcassets in Resources */,
 				8B0198331AD898C6001CC463 /* star_icon@2x.png in Resources */,
@@ -395,8 +415,13 @@
 				63EB16F51AD864D500E75869 /* Discount.m in Sources */,
 				63576FDD1AD84085004B7033 /* ViewController.m in Sources */,
 				63EB16F91AD8745C00E75869 /* URLManager.m in Sources */,
+				8B0198231AD8775B001CC463 /* NotificationsViewController.m in Sources */,
 				63576FDA1AD84085004B7033 /* AppDelegate.m in Sources */,
 				63EB16F21AD8634500E75869 /* CLN-Model.xcdatamodeld in Sources */,
+				8B0198201AD87751001CC463 /* FavoritesViewController.m in Sources */,
+				8BA9473A1AD857B5002D4830 /* SettingsTableViewCell.m in Sources */,
+				8BA947371AD854D6002D4830 /* SettingsViewController.m in Sources */,
+				8B0198261AD87A25001CC463 /* FavoritesTableViewCell.m in Sources */,
 				63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */,
 				63576FD71AD84085004B7033 /* main.m in Sources */,
 				63EB16FF1AD878BA00E75869 /* ColorCategory.m in Sources */,

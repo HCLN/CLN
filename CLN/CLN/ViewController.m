@@ -11,10 +11,11 @@
 #import "DiscountTableViewCell.h"
 
 @interface ViewController () {
-    IBOutlet UITableView* discountTable;
-    IBOutlet MKMapView* mapView;
+    IBOutlet UITableView *discountTable;
+    IBOutlet MKMapView *mapView;
+    IBOutlet UIView *categoriesView;
 
-    NSArray* allDiscounts;
+    NSArray *allDiscounts;
 }
 
 @end
@@ -26,8 +27,18 @@
 
     [self initializeMap];
     [self updateData];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 190, 44)];
+    searchBar.delegate = self;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:@"NOTIFICATIONS_HAS_BEEN_UPDATED" object:nil];
+    UIImage *image = [UIImage imageNamed:@"Logo-Club-La-Nacion-Blanco.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = CGRectMake(50, 0, 89, 60);
+    [self.navigationController.navigationBar addSubview:imageView];
+
+    categoriesView.layer.cornerRadius = 5;
+    categoriesView.layer.masksToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,8 +89,18 @@
     return cell;
 }
 
-- (NSArray*)getAllDiscounts {
+- (NSArray *)getAllDiscounts {
     return [Discount MR_findAll];
+}
+
+- (IBAction)toogleSettingsMenu:(id)sender {
+    [[NSNotificationCenter defaultCenter]
+        postNotificationName:@"toogleSettingsMenu"
+                      object:nil];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end
