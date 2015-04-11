@@ -96,6 +96,7 @@
         [tableView dequeueReusableCellWithIdentifier:@"DISCOUNT_CELL" forIndexPath:indexPath];
     if (cell) {
         [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.establishmentLogoImageView];
+        cell.location = location;
         [cell configureWithDiscount:[allDiscounts objectAtIndex:indexPath.row]];
     }
     return cell;
