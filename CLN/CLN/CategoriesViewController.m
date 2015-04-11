@@ -30,6 +30,9 @@
         return [obj1 compare:obj2];
     }];
     selectedCategories = [[[NSUserDefaults standardUserDefaults] objectForKey:@"categories"] mutableCopy];
+
+    slider.value = [[[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"] floatValue];
+    [radioLabel setText:[NSString stringWithFormat:@"%0.fm", slider.value]];
 }
 
 - (void)cancelCategories:(id)sender {
@@ -76,6 +79,12 @@
 
 - (void)save {
     [[NSUserDefaults standardUserDefaults] setValue:selectedCategories forKey:@"categories"];
+
+    if (slider.value != [[[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"] floatValue]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RATIO_HAS_CHANGE" object:selectedCategories];
+    }
+
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithFloat:slider.value] forKey:@"ratio"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"CATEGORIES_HAS_CHANGED" object:selectedCategories];

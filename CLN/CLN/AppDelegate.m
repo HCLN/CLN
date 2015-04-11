@@ -55,11 +55,18 @@
         [[NSUserDefaults standardUserDefaults] setValue:selectedCategories forKey:@"categories"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
+    if (!ratio) {
+        [[NSUserDefaults standardUserDefaults] setValue:ratio forKey:@"ratio"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSettingsMenuButtonTouchUp) name:@"toogleSettingsMenu" object:nil];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"CLN-Model"];
 
     [self startLocationManager:launchOptions];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restartMonitoring) name:@"RATIO_HAS_CHANGE" object:nil];
 
     return YES;
 }
@@ -79,10 +86,14 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)restartMonitoring {
     [self stopLocationManager];
     [self initLocationManager];
     [self startMonitoringLocationChanges];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [self restartMonitoring];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -102,15 +113,18 @@
         NSString *latitudeSt = [NSString stringWithFormat:@"%f", lastLocation.coordinate.latitude];
         NSString *longitudeSt = [NSString stringWithFormat:@"%f", lastLocation.coordinate.longitude];
 
-        [SynchManager updateWithLatitude:latitudeSt Longitude:longitudeSt Distance:@"3000"];
+        NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
+        [SynchManager updateWithLatitude:latitudeSt Longitude:longitudeSt Distance:[ratio stringValue]];
     }
 }
 
 - (CLLocationManager *)sharedLocationManager {
+    NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
+
     sharedLocationManager = [[CLLocationManager alloc] init];
     sharedLocationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     sharedLocationManager.activityType = CLActivityTypeOtherNavigation;
-    sharedLocationManager.distanceFilter = 1500; // each 1500 mtrs
+    sharedLocationManager.distanceFilter = [ratio floatValue] / 3;
     return sharedLocationManager;
 }
 

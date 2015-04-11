@@ -171,9 +171,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     location = newLocation;
+    NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
+
     [SynchManager updateWithLatitude:[NSString stringWithFormat:@"%f", location.coordinate.latitude]
                            Longitude:[NSString stringWithFormat:@"%f", location.coordinate.longitude]
-                            Distance:@"3000"];
+                            Distance:[ratio stringValue]];
     if (location != nil) {
         [self centerMap:location radius:2000];
         [locationManager stopUpdatingLocation];
@@ -196,8 +198,10 @@
 }
 
 - (void)centerMap:(CLLocation *)centerLocation radius:(NSInteger)radius {
-    if (location)
-        [mapView setRegion:MKCoordinateRegionMakeWithDistance(centerLocation.coordinate, radius, radius) animated:YES];
+    if (location) {
+        CLLocationCoordinate2D coord = CLLocationCoordinate2DMake([self.discount.pointLatitude doubleValue], [self.discount.pointLongitude doubleValue]);
+        [mapView setRegion:MKCoordinateRegionMakeWithDistance(coord, radius, radius) animated:YES];
+    }
 }
 
 - (void)addAnnotationToMap {

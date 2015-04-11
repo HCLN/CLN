@@ -120,7 +120,9 @@
     for (Discount *d in discounts) {
         NSString *dt = [d getDistanceInMetersLatitudeTo:[NSNumber numberWithDouble:location.coordinate.latitude] LongitudeTo:[NSNumber numberWithDouble:location.coordinate.longitude]];
         CGFloat distance = [dt floatValue];
-        if (distance < 3000) {
+        NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
+
+        if (distance < [ratio floatValue]) {
             [arr addObject:d];
         }
     }
@@ -153,9 +155,11 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     location = newLocation;
+    NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
+
     [SynchManager updateWithLatitude:[NSString stringWithFormat:@"%f", location.coordinate.latitude]
                            Longitude:[NSString stringWithFormat:@"%f", location.coordinate.longitude]
-                            Distance:@"3000"];
+                            Distance:[ratio stringValue]];
 
     [self onBtLocationTouchDown:nil];
 }
