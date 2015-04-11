@@ -8,8 +8,11 @@
 
 #import "FavoritesViewController.h"
 #import "FavoritesTableViewCell.h"
+#import "Discount.h"
 
-@interface FavoritesViewController ()
+@interface FavoritesViewController () {
+    NSArray *arrDiscounts;
+}
 
 @end
 
@@ -17,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    arrDiscounts = [Discount MR_findByAttribute:@"isFavorite" withValue:[NSNumber numberWithBool:YES]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,16 +43,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return arrDiscounts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FavoritesTableViewCell *cell = (FavoritesTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FAVS_CELL" forIndexPath:indexPath];
     if (cell) {
-        cell.establishmentLabel.text = @"Musimundo";
-        cell.discountDescriptionLabel.text = @"2x1 en electrodomesticos hasta 20hs";
-        cell.establishmentLogoImageView.imageURL =
-            [NSURL URLWithString:@"http://www.musimundo.com/musica/musimundo.png"];
+        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.establishmentLogoImageView];
+        [cell configureWithDiscount:[arrDiscounts objectAtIndex:indexPath.row]];
     }
     return cell;
 }

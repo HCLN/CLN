@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AsyncImageView.h"
 
 @interface FavoritesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
