@@ -64,7 +64,8 @@
         if ([imageDetail containsString:@":Tipo=7:"] ||
             [imageDetail containsString:@":Tipo=13:"] ||
             [imageDetail containsString:@":Tipo=12:"] ||
-            [imageDetail containsString:@":Tipo=2:"]) {
+            [imageDetail containsString:@":Tipo=2:"] ||
+            [imageDetail containsString:@":Tipo=15:"]) {
             parsedImages = [imageDetail componentsSeparatedByString:@":"];
             if ([parsedImages count] > 0) {
                 parsedImages = [[parsedImages objectAtIndex:0] componentsSeparatedByString:@"="];
