@@ -63,6 +63,8 @@
     [[self navigationItem] setBackBarButtonItem:newBackButton];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:@"NOTIFICATIONS_HAS_BEEN_UPDATED" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:@"CATEGORIES_HAS_CHANGED" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -107,6 +109,8 @@
 }
 
 - (NSArray *)getAllDiscounts {
+    NSArray *selectedArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"categories"];
+    return [Discount MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"category IN %@", selectedArray]];
     return [Discount MR_findAll];
 }
 

@@ -91,6 +91,10 @@
     return NO;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 /*
 #pragma mark - Navigation
 

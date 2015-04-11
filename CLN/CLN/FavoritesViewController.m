@@ -11,6 +11,8 @@
 #import "Discount.h"
 
 @interface FavoritesViewController () {
+    IBOutlet UITableView *table;
+
     NSArray *arrDiscounts;
 }
 
@@ -21,6 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     arrDiscounts = [Discount MR_findByAttribute:@"isFavorite" withValue:[NSNumber numberWithBool:YES]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [table reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +78,10 @@
 
 - (IBAction)onBackButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 
 @end

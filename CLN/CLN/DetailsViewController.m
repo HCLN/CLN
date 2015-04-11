@@ -233,4 +233,8 @@
     return [ColorCategory pinForCategory:categoryName];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 @end
