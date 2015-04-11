@@ -12,6 +12,7 @@
 #import "MapAnnotation.h"
 #import "ColorCategory.h"
 #import "DetailsViewController.h"
+#import "SynchManager.h"
 
 #import <CoreLocation/CoreLocation.h>
 
@@ -123,6 +124,10 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     location = newLocation;
+    [SynchManager updateWithLatitude:[NSString stringWithFormat:@"%f", location.coordinate.latitude]
+                           Longitude:[NSString stringWithFormat:@"%f", location.coordinate.longitude]
+                            Distance:@"3000"];
+
     [self onBtLocationTouchDown:nil];
 }
 
