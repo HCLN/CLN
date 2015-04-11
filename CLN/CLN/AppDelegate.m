@@ -44,7 +44,6 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSettingsMenuButtonTouchUp) name:@"toogleSettingsMenu" object:nil];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"CLN-Model"];
-    [SynchManager update];
 
     [self startLocationManager:launchOptions];
 
@@ -84,7 +83,11 @@
 
     NSUInteger count = [locations count];
     if (count > 0) {
-        [SynchManager update];
+        CLLocation *lastLocation = [locations objectAtIndex:0];
+        NSString *latitudeSt = [NSString stringWithFormat:@"%f", lastLocation.coordinate.latitude];
+        NSString *longitudeSt = [NSString stringWithFormat:@"%f", lastLocation.coordinate.longitude];
+
+        [SynchManager updateWithLatitude:latitudeSt Longitude:longitudeSt Distance:@"3000"];
     }
 }
 

@@ -10,6 +10,5 @@
 
 @interface SynchManager : NSObject
 
-+ (void)update;
-
++ (void)updateWithLatitude:(NSString *)latitude Longitude:(NSString *)longitude Distance:(NSString *)distance;
 @end

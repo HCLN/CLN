@@ -9,14 +9,23 @@
 #import "ViewController.h"
 #import "Discount.h"
 #import "DiscountTableViewCell.h"
+#import "MapAnnotation.h"
+#import "ColorCategory.h"
 #import "DetailsViewController.h"
+
+#import <CoreLocation/CoreLocation.h>
 
 @interface ViewController () {
     IBOutlet UITableView *discountTable;
     IBOutlet MKMapView *mapView;
     IBOutlet UIView *categoriesView;
 
+    UISearchBar *searchBar;
+
+    CLLocationManager *locationManager;
+
     NSArray *allDiscounts;
+    CLLocation *location;
 }
 
 @end
@@ -26,9 +35,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSearch)]];
+
     [self initializeMap];
+    [self initializeLocationManager];
+
     [self updateData];
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 190, 44)];
+
+    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 190, 44)];
     searchBar.delegate = self;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchBar];
 
@@ -54,31 +68,9 @@
     [self.navigationController.navigationBar addSubview:imageView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)initializeMap {
-    mapView.delegate = self;
-    [mapView setShowsUserLocation:YES];
-}
-
-- (void)centerMap {
-    //    if (!delegate.lastLocation)
-    //        return;
-    //    [mapView setRegion:MKCoordinateRegionMakeWithDistance(delegate.lastLocation.coordinate, 2000, 2000) animated:YES];
-
-    //    MapAnnotation* ann = [[MapAnnotation alloc] init];
-    //    ann.title = @"Musimundo";
-    //    ann.subtitle = @"2x1 en electrodomesticos";
-    //    ann.coordinate = delegate.lastLocation.coordinate;
-    //
-    //    [mapView removeAnnotations:mapView.annotations];
-    //    [mapView addAnnotation:ann];
-}
-
 - (void)updateData {
     allDiscounts = [self getAllDiscounts];
+    [self addAnnotationsToMap:allDiscounts];
     [discountTable reloadData];
 }
 
@@ -94,8 +86,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DiscountTableViewCell *cell = (DiscountTableViewCell *)
-        [tableView dequeueReusableCellWithIdentifier:@"DISCOUNT_CELL"];
+        [tableView dequeueReusableCellWithIdentifier:@"DISCOUNT_CELL" forIndexPath:indexPath];
     if (cell) {
+        [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:cell.establishmentLogoImageView];
         [cell configureWithDiscount:[allDiscounts objectAtIndex:indexPath.row]];
     }
     return cell;
@@ -120,6 +113,100 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    location = newLocation;
+    [self onBtLocationTouchDown:nil];
+}
+
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)mySearchBar
+    textDidChange:(NSString *)searchText {
+    allDiscounts = [self filterListForSearchedText:searchText];
+    [self addAnnotationsToMap:allDiscounts];
+    [discountTable reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)mySearchBar {
+    NSLog(@"cancel");
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)mySearchBar {
+    NSLog(@"searchBarSearchButtonClicked");
+    [mySearchBar resignFirstResponder];
+}
+
+- (void)cancelSearch {
+    [searchBar resignFirstResponder];
+}
+
+- (NSArray *)filterListForSearchedText:(NSString *)text {
+    NSArray *filteredValues = [self getAllDiscounts];
+    if ([text isEqualToString:@""])
+        return filteredValues;
+
+    return [filteredValues filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.establishmentName CONTAINS[cd] %@", text]];
+}
+
+#pragma mark Map
+- (IBAction)onBtLocationTouchDown:(id)sender {
+    if (location != nil) {
+        [self centerMap:location radius:2000];
+        [locationManager stopUpdatingLocation];
+    }
+}
+
+- (void)initializeMap {
+    mapView.delegate = self;
+    [mapView setShowsUserLocation:YES];
+}
+
+- (void)initializeLocationManager {
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+
+    [locationManager startUpdatingLocation];
+}
+
+- (void)centerMap:(CLLocation *)centerLocation radius:(NSInteger)radius {
+    if (location)
+        [mapView setRegion:MKCoordinateRegionMakeWithDistance(centerLocation.coordinate, radius, radius) animated:YES];
+}
+
+- (void)addAnnotationsToMap:(NSArray *)discountArray {
+    [mapView removeAnnotations:mapView.annotations];
+
+    for (Discount *discount in discountArray) {
+        MapAnnotation *ann = [[MapAnnotation alloc] init];
+        ann.discount = discount;
+        ann.title = discount.establishmentName;
+        ann.subtitle = [NSString stringWithFormat:@"%@ %@", discount.discountType, discount.discountDescription];
+        ann.coordinate = CLLocationCoordinate2DMake([discount.pointLatitude floatValue], [discount.pointLongitude floatValue]);
+        ann.color = [ColorCategory colorForCategory:discount.category];
+
+        [mapView addAnnotation:ann];
+    }
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if ([annotation class] == [MapAnnotation class]) {
+        MapAnnotation *ann = (MapAnnotation *)annotation;
+        MKPinAnnotationView *annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+        UIImage *image = [self pinImageForCategory:ann.discount.category];
+        annView.annotation = annotation;
+        annView.image = image;
+        return annView;
+    }
+    return nil;
+}
+
+- (UIImage *)pinImageForCategory:(NSString *)categoryName {
+    return [ColorCategory pinForCategory:categoryName];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

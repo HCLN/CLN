@@ -16,4 +16,12 @@
     return [UIColor colorWithHexString:[d objectForKey:categoryName] alpha:1];
 }
 
++ (UIImage *)pinForCategory:(NSString *)categoryName {
+    NSDictionary *d = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"CategoryPin" ofType:@"plist"]];
+    NSString *imgName = [NSString stringWithFormat:@"%@.png", [d objectForKey:categoryName]];
+    if (imgName)
+        return [UIImage imageNamed:imgName];
+    return [UIImage imageNamed:@"placeimage.jpg"];
+}
+
 @end

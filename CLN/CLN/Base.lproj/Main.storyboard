@@ -109,8 +109,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="daJ-8J-80a"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PEa-zK-A0I"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="AAt-3C-2uf"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="s2m-Za-pbI"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ux-0B-qZx">
@@ -126,9 +126,23 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.35686274509999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9d-FO-1nt">
+                                <rect key="frame" x="534" y="173" width="50" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="2dX-aD-7iq"/>
+                                </constraints>
+                                <state key="normal" image="location.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBtLocationTouchDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pWe-hf-4HW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.35686274509999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="I9d-FO-1nt" firstAttribute="top" secondItem="iCi-Z8-ZJm" secondAttribute="bottom" constant="-63" id="0mq-u3-TfM"/>
+                            <constraint firstAttribute="trailing" secondItem="I9d-FO-1nt" secondAttribute="trailing" constant="16" id="Flf-r0-mpY"/>
                             <constraint firstItem="tvV-7e-Wgp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LUa-9K-uhr"/>
                             <constraint firstItem="tvV-7e-Wgp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="236" id="QkX-hn-BRd"/>
                             <constraint firstItem="iCi-Z8-ZJm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="RA8-uV-CYm"/>
@@ -378,7 +392,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empresa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cn-b1-UXG">
-                                <rect key="frame" x="15" y="320" width="570" height="20.5"/>
+                                <rect key="frame" x="15" y="320" width="570" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="FWA-LQ-XSE"/>
                                     <constraint firstAttribute="height" constant="25" id="kbl-Ad-cQZ"/>

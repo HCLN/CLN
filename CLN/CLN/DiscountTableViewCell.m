@@ -23,6 +23,8 @@
     [self.categoryColorIndicatorView setBackgroundColor:color];
     [self.establishmentLabel setText:self.discount.establishmentName];
     [self.discountDescriptionLabel setText:descriptionText];
+
+    self.establishmentLogoImageView.image = [UIImage imageNamed:@"placeimage"];
     self.establishmentLogoImageView.imageURL = [NSURL URLWithString:fullURL];
 }
 
