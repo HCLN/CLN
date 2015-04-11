@@ -66,6 +66,7 @@
 		6343E1E31AD8E4A400CF0A4C /* CategoryPin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryPin.plist; sourceTree = "<group>"; };
 		6343E1E51AD8E62C00CF0A4C /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		6343E1E61AD8E62C00CF0A4C /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		6343E1EA1AD8F5AF00CF0A4C /* LocationDemo.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationDemo.gpx; sourceTree = "<group>"; };
 		63576FD11AD84085004B7033 /* CLN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63576FD51AD84085004B7033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63576FD61AD84085004B7033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -294,6 +295,7 @@
 				63EB16FB1AD8770900E75869 /* CategoryColor.plist */,
 				63EB16FD1AD878BA00E75869 /* ColorCategory.h */,
 				63EB16FE1AD878BA00E75869 /* ColorCategory.m */,
+				6343E1EA1AD8F5AF00CF0A4C /* LocationDemo.gpx */,
 			);
 			name = Util;
 			sourceTree = "<group>";
