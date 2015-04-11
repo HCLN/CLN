@@ -426,14 +426,14 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="car.png" translatesAutoresizingMaskIntoConstraints="NO" id="tHa-zp-vkV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tHa-zp-vkV">
                                 <rect key="frame" x="270" y="410" width="54" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="6Mo-m2-rzC"/>
                                     <constraint firstAttribute="width" constant="54" id="lsN-VD-8cr"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="location.png" translatesAutoresizingMaskIntoConstraints="NO" id="A5O-jA-SYW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A5O-jA-SYW">
                                 <rect key="frame" x="187" y="409" width="54" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="6Wr-rP-svm"/>
@@ -449,6 +449,9 @@
                                 <state key="normal" image="car.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onCarLocationClick:" destination="DmI-iH-U54" eventType="touchUpInside" id="q6A-Rp-Xi1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-Tc-dn9">
                                 <rect key="frame" x="550" y="137" width="40" height="40"/>
@@ -459,6 +462,9 @@
                                 <state key="normal" image="walk.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onWalkLocationClick:" destination="DmI-iH-U54" eventType="touchUpInside" id="lhQ-eZ-HuG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiempo Restante" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8w-Hb-fUb">
                                 <rect key="frame" x="10" y="471" width="169" height="21"/>
@@ -648,7 +654,6 @@
     </scenes>
     <resources>
         <image name="car.png" width="42" height="42"/>
-        <image name="location.png" width="42" height="42"/>
         <image name="menu.png" width="24" height="24"/>
         <image name="placeimage.jpg" width="50" height="50"/>
         <image name="walk.png" width="42" height="42"/>

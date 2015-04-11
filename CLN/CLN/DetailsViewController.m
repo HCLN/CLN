@@ -9,6 +9,7 @@
 #import "DetailsViewController.h"
 #import "AsyncImageView.h"
 #import "URLManager.h"
+#import <MapKit/MapKit.h>
 
 @interface DetailsViewController () {
     IBOutlet AsyncImageView *logoImage;
@@ -21,6 +22,7 @@
     IBOutlet UIButton *walkLocationButton;
     IBOutlet UILabel *remainderLabel;
     IBOutlet UIButton *termsButton;
+    UIBarButtonItem *favsButton;
 }
 
 @end
@@ -42,7 +44,7 @@
     UIButton *favBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     favBtn.bounds = CGRectMake(0, 0, favImage.size.width, favImage.size.height);
     [favBtn setImage:favImage forState:UIControlStateNormal];
-    UIBarButtonItem *favsButton = [[UIBarButtonItem alloc] initWithImage:favImage style:UIBarButtonItemStylePlain target:self action:@selector(addToFavorite:)];
+    favsButton = [[UIBarButtonItem alloc] initWithImage:favImage style:UIBarButtonItemStylePlain target:self action:@selector(addToFavorite:)];
 
     UIImage *shareImage = [UIImage imageNamed:@"share.png"];
     UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -72,13 +74,42 @@
     [discountDescLabel setText:self.discount.discountDescription];
 
     // TODO: tarjetas
-
-    // TODO: car y walk location button
+    if ([self.discount.discountCards isEqualToString:@"Premium"]) {
+        [classicCard setImage:[UIImage imageNamed:@"premium_card"]];
+    } else if ([self.discount.discountCards isEqualToString:@"Classic"]) {
+        [classicCard setImage:[UIImage imageNamed:@"classic_card"]];
+    } else {
+        [premiumCard setImage:[UIImage imageNamed:@"premium_card"]];
+        [classicCard setImage:[UIImage imageNamed:@"classic_card"]];
+    }
 
     // TODO: remainderlabel
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
+                                                        fromDate:[NSDate date]
+                                                          toDate:self.discount.endDate
+                                                         options:0];
+    NSString *remainderText = @"-";
+    if (components.day > 1) {
+        remainderText = [NSString stringWithFormat:@"%ld días", (long)components.day];
+    } else if (components.day <= 1) {
+        components = [gregorianCalendar components:NSHourCalendarUnit
+                                          fromDate:[NSDate date]
+                                            toDate:self.discount.endDate
+                                           options:0];
+        NSString *hs = @"horas";
+        if (components.hour == 1) {
+            hs = @"hora";
+        }
+        remainderText = [NSString stringWithFormat:@"%ld %@", (long)components.hour, hs];
+    }
+
+    [remainderLabel setText:remainderText];
 }
 
 - (void)addToFavorite:(id)sender {
+    [favsButton setImage:[UIImage imageNamed:@"like-filled"]];
+    //    [favsButton setImage:[UIImage imageNamed:@"like"]];
 }
 
 - (void)shareDiscount:(id)sender {
@@ -87,6 +118,28 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onCarLocationClick:(id)sender {
+    MKPlacemark *place = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([self.discount.pointLatitude doubleValue], [self.discount.pointLongitude doubleValue]) addressDictionary:nil];
+    MKMapItem *destination = [[MKMapItem alloc] initWithPlacemark:place];
+    destination.name = self.discount.establishmentName;
+    NSArray *items = [[NSArray alloc] initWithObjects:destination, nil];
+    NSDictionary *options = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                      MKLaunchOptionsDirectionsModeDriving,
+                                                      MKLaunchOptionsDirectionsModeKey, nil];
+    [MKMapItem openMapsWithItems:items launchOptions:options];
+}
+
+- (IBAction)onWalkLocationClick:(id)sender {
+    MKPlacemark *place = [[MKPlacemark alloc] initWithCoordinate:CLLocationCoordinate2DMake([self.discount.pointLatitude doubleValue], [self.discount.pointLongitude doubleValue]) addressDictionary:nil];
+    MKMapItem *destination = [[MKMapItem alloc] initWithPlacemark:place];
+    destination.name = self.discount.establishmentName;
+    NSArray *items = [[NSArray alloc] initWithObjects:destination, nil];
+    NSDictionary *options = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                                      MKLaunchOptionsDirectionsModeWalking,
+                                                      MKLaunchOptionsDirectionsModeKey, nil];
+    [MKMapItem openMapsWithItems:items launchOptions:options];
 }
 
 /*
