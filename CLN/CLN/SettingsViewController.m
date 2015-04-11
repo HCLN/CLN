@@ -51,7 +51,7 @@
         if (indexPath.row == 0) {
             [cell.iconoImage setImage:[UIImage imageNamed:@"star_icon"]];
         } else {
-            [cell.iconoImage setImage:[UIImage imageNamed:@"notification_icon"]];
+            [cell.iconoImage setImage:[UIImage imageNamed:@"about_us"]];
         }
         [cell.settingLabel setText:[options objectAtIndex:indexPath.row]];
     }

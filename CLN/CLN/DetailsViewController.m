@@ -77,8 +77,10 @@
     [establishmentLabel setText:self.discount.establishmentName];
 
     [discountTypeLabel setText:self.discount.discountType];
+    [discountTypeLabel setTextColor:[ColorCategory colorForCategory:self.discount.category]];
 
     [discountDescLabel setText:self.discount.discountDescription];
+    [discountDescLabel setTextColor:[ColorCategory colorForCategory:self.discount.category]];
 
     if ([self.discount.discountCards isEqualToString:@"Premium"]) {
         [classicCard setImage:[UIImage imageNamed:@"premium_card"]];
@@ -111,9 +113,16 @@
 
     [remainderLabel setText:remainderText];
 
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+
     [self initializeMap];
     [self initializeLocationManager];
     [self addAnnotationToMap];
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    return NO;
 }
 
 - (void)addToFavorite:(id)sender {
