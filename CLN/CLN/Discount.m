@@ -60,7 +60,10 @@
 - (NSString*)getLogoPath {
     NSArray* parsedImages = [self.images componentsSeparatedByString:@"-"];
     for (NSString* imageDetail in parsedImages) {
-        if ([imageDetail containsString:@":Tipo=7:"]) {
+        if ([imageDetail containsString:@":Tipo=7:"] ||
+            [imageDetail containsString:@":Tipo=13:"] ||
+            [imageDetail containsString:@":Tipo=12:"] ||
+            [imageDetail containsString:@":Tipo=2:"]) {
             parsedImages = [imageDetail componentsSeparatedByString:@":"];
             if ([parsedImages count] > 0) {
                 parsedImages = [[parsedImages objectAtIndex:0] componentsSeparatedByString:@"="];

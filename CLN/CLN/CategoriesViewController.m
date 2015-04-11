@@ -13,6 +13,9 @@
 @interface CategoriesViewController () {
     NSArray *allCategories;
     NSMutableArray *selectedCategories;
+
+    IBOutlet UISlider *slider;
+    IBOutlet UILabel *radioLabel;
 }
 
 @end
@@ -27,11 +30,10 @@
         return [obj1 compare:obj2];
     }];
     selectedCategories = [[[NSUserDefaults standardUserDefaults] objectForKey:@"categories"] mutableCopy];
-    if (!selectedCategories) {
-        selectedCategories = [[NSArray arrayWithArray:allCategories] mutableCopy];
-        [[NSUserDefaults standardUserDefaults] setValue:selectedCategories forKey:@"categories"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
+}
+
+- (void)cancelCategories:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +55,7 @@
         NSString *categoryName = [allCategories objectAtIndex:indexPath.row];
         cell.categoryNameLabel.text = categoryName;
         cell.categoryActiveIndicator.backgroundColor = [ColorCategory colorForCategory:categoryName];
+        cell.categoryActiveIndicator.layer.borderColor = [[ColorCategory colorForCategory:categoryName] CGColor];
 
         BOOL s = [self array:selectedCategories containts:categoryName];
         if (s)
@@ -93,6 +96,10 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+- (IBAction)onSliderValueChanged:(UISlider *)sender {
+    [radioLabel setText:[NSString stringWithFormat:@"%0.fm", sender.value]];
 }
 
 /*

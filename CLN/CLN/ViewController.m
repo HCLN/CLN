@@ -76,6 +76,7 @@
 }
 
 - (void)updateData {
+    searchBar.text = @"";
     allDiscounts = [self getAllDiscounts];
     [self addAnnotationsToMap:allDiscounts];
     [discountTable reloadData];

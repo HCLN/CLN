@@ -31,6 +31,8 @@
 
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
 
+    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil]];
+
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     _settingsVC = [storyboard instantiateViewControllerWithIdentifier:@"settingsVC"];
     _mainVC = [storyboard instantiateViewControllerWithIdentifier:@"mainVC"];
@@ -41,6 +43,18 @@
                   rightMenuViewController:nil];
     self.window.rootViewController = _container;
     [self.window makeKeyAndVisible];
+
+    NSDictionary *categoryDic = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"CategoryColor" ofType:@"plist"]];
+    NSArray *allCategories = [[categoryDic allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+        return [obj1 compare:obj2];
+    }];
+
+    NSArray *selectedCategories = [[[NSUserDefaults standardUserDefaults] objectForKey:@"categories"] mutableCopy];
+    if (!selectedCategories) {
+        selectedCategories = [[NSArray arrayWithArray:allCategories] mutableCopy];
+        [[NSUserDefaults standardUserDefaults] setValue:selectedCategories forKey:@"categories"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSettingsMenuButtonTouchUp) name:@"toogleSettingsMenu" object:nil];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"CLN-Model"];

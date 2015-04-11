@@ -231,6 +231,10 @@
     return [ColorCategory pinForCategory:categoryName];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (IBAction)onTermsButtonClick:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
 
