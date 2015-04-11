@@ -23,6 +23,7 @@
 @dynamic category;
 @dynamic subCategory;
 @dynamic notified;
+@dynamic isFavorite;
 
 - (void)setupFromDictionary:(NSDictionary*)dictionary {
     NSArray* point = [dictionary objectForKey:@"point"];

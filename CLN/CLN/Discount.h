@@ -24,6 +24,7 @@
 @property (nonatomic, retain) NSString *category;
 @property (nonatomic, retain) NSString *subCategory;
 @property (nonatomic, retain) NSNumber *notified;
+@property (nonatomic, retain) NSNumber *isFavorite;
 
 - (void)setupFromDictionary:(NSDictionary *)dictionary;
 - (NSString *)getLogoPath;

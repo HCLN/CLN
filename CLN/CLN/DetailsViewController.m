@@ -10,6 +10,9 @@
 #import "AsyncImageView.h"
 #import "URLManager.h"
 #import <MapKit/MapKit.h>
+#import "MapAnnotation.h"
+#import "ColorCategory.h"
+#import "SynchManager.h"
 
 @interface DetailsViewController () {
     IBOutlet AsyncImageView *logoImage;
@@ -23,6 +26,9 @@
     IBOutlet UILabel *remainderLabel;
     IBOutlet UIButton *termsButton;
     UIBarButtonItem *favsButton;
+    CLLocationManager *locationManager;
+    IBOutlet MKMapView *mapView;
+    CLLocation *location;
 }
 
 @end
@@ -41,6 +47,9 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 
     UIImage *favImage = [UIImage imageNamed:@"like.png"];
+    if ([self.discount.isFavorite isEqual:[NSNumber numberWithBool:YES]]) {
+        favImage = [UIImage imageNamed:@"like-filled"];
+    }
     UIButton *favBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     favBtn.bounds = CGRectMake(0, 0, favImage.size.width, favImage.size.height);
     [favBtn setImage:favImage forState:UIControlStateNormal];
@@ -73,7 +82,6 @@
 
     [discountDescLabel setText:self.discount.discountDescription];
 
-    // TODO: tarjetas
     if ([self.discount.discountCards isEqualToString:@"Premium"]) {
         [classicCard setImage:[UIImage imageNamed:@"premium_card"]];
     } else if ([self.discount.discountCards isEqualToString:@"Classic"]) {
@@ -83,7 +91,6 @@
         [classicCard setImage:[UIImage imageNamed:@"classic_card"]];
     }
 
-    // TODO: remainderlabel
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *components = [gregorianCalendar components:NSDayCalendarUnit
                                                         fromDate:[NSDate date]
@@ -105,11 +112,21 @@
     }
 
     [remainderLabel setText:remainderText];
+
+    [self initializeMap];
+    [self initializeLocationManager];
+    [self addAnnotationToMap];
 }
 
 - (void)addToFavorite:(id)sender {
-    [favsButton setImage:[UIImage imageNamed:@"like-filled"]];
-    //    [favsButton setImage:[UIImage imageNamed:@"like"]];
+    if ([self.discount.isFavorite isEqual:[NSNumber numberWithBool:YES]]) {
+        self.discount.isFavorite = [NSNumber numberWithBool:NO];
+        [favsButton setImage:[UIImage imageNamed:@"like"]];
+    } else {
+        self.discount.isFavorite = [NSNumber numberWithBool:YES];
+        [favsButton setImage:[UIImage imageNamed:@"like-filled"]];
+    }
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
 }
 
 - (void)shareDiscount:(id)sender {
@@ -151,5 +168,69 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    location = newLocation;
+    [SynchManager updateWithLatitude:[NSString stringWithFormat:@"%f", location.coordinate.latitude]
+                           Longitude:[NSString stringWithFormat:@"%f", location.coordinate.longitude]
+                            Distance:@"3000"];
+    if (location != nil) {
+        [self centerMap:location radius:2000];
+        [locationManager stopUpdatingLocation];
+    }
+}
+
+#pragma mark Map
+
+- (void)initializeMap {
+    mapView.delegate = self;
+    [mapView setShowsUserLocation:YES];
+}
+
+- (void)initializeLocationManager {
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+
+    [locationManager startUpdatingLocation];
+}
+
+- (void)centerMap:(CLLocation *)centerLocation radius:(NSInteger)radius {
+    if (location)
+        [mapView setRegion:MKCoordinateRegionMakeWithDistance(centerLocation.coordinate, radius, radius) animated:YES];
+}
+
+- (void)addAnnotationToMap {
+    [self centerMap:location radius:2000];
+
+    [mapView removeAnnotations:mapView.annotations];
+
+    MapAnnotation *ann = [[MapAnnotation alloc] init];
+    ann.discount = self.discount;
+    ann.title = self.discount.establishmentName;
+    ann.subtitle = [NSString stringWithFormat:@"%@ %@", self.discount.discountType, self.discount.discountDescription];
+    ann.coordinate = CLLocationCoordinate2DMake([self.discount.pointLatitude floatValue], [self.discount.pointLongitude floatValue]);
+    ann.color = [ColorCategory colorForCategory:self.discount.category];
+
+    [mapView addAnnotation:ann];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    if ([annotation class] == [MapAnnotation class]) {
+        MapAnnotation *ann = (MapAnnotation *)annotation;
+        MKPinAnnotationView *annView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pin"];
+        UIImage *image = [self pinImageForCategory:ann.discount.category];
+        annView.annotation = annotation;
+        annView.image = image;
+        return annView;
+    }
+    return nil;
+}
+
+- (UIImage *)pinImageForCategory:(NSString *)categoryName {
+    return [ColorCategory pinForCategory:categoryName];
+}
 
 @end
