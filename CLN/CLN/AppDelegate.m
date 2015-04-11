@@ -14,6 +14,10 @@
     CLLocationManager* sharedLocationManager;
 }
 
+@property (nonatomic, retain) UIViewController *settingsVC;
+@property (nonatomic, retain) UIViewController *mainVC;
+@property (nonatomic, retain) MFSideMenuContainerViewController *container;
+
 @end
 
 @implementation AppDelegate

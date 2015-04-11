@@ -59,18 +59,18 @@
 }
 
 #pragma mark - Table
-- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView*)tableView
+- (NSInteger)tableView:(UITableView *)tableView
     numberOfRowsInSection:(NSInteger)section {
     return [allDiscounts count];
 }
 
-- (UITableViewCell*)tableView:(UITableView*)tableView
-        cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-    DiscountTableViewCell* cell = (DiscountTableViewCell*)
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DiscountTableViewCell *cell = (DiscountTableViewCell *)
         [tableView dequeueReusableCellWithIdentifier:@"DISCOUNT_CELL"];
     if (cell) {
         [cell configureWithDiscount:[allDiscounts objectAtIndex:indexPath.row]];
