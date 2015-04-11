@@ -111,8 +111,8 @@
 
 - (NSArray *)getAllDiscounts {
     NSArray *selectedArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"categories"];
-    return [Discount MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"category IN %@", selectedArray]];
-    return [Discount MR_findAll];
+    NSDate *now = [NSDate date];
+    return [Discount MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"category IN %@ AND startDate<= %@ AND endDate >= %@", selectedArray, now, now]];
 }
 
 - (IBAction)toogleSettingsMenu:(id)sender {
