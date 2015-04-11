@@ -1,18 +1,18 @@
 //
-//  NotificationsViewController.m
+//  AcercaDeViewController.m
 //  CLN
 //
-//  Created by Developer on 4/10/15.
+//  Created by Developer on 4/11/15.
 //  Copyright (c) 2015 TBH. All rights reserved.
 //
 
-#import "NotificationsViewController.h"
+#import "AcercaDeViewController.h"
 
-@interface NotificationsViewController ()
+@interface AcercaDeViewController ()
 
 @end
 
-@implementation NotificationsViewController
+@implementation AcercaDeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,10 +24,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 /*
 #pragma mark - Navigation
 
@@ -37,5 +33,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)onBtnVolver:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

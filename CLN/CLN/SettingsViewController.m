@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    options = @[ @"Favoritos", @"Notificaciones" ];
+    options = @[ @"Favoritos", @"Acerca de" ];
 }
 
 - (void)didReceiveMemoryWarning {
