@@ -668,6 +668,7 @@
     </scenes>
     <resources>
         <image name="car.png" width="42" height="42"/>
+        <image name="location.png" width="42" height="42"/>
         <image name="menu.png" width="24" height="24"/>
         <image name="placeimage.jpg" width="50" height="50"/>
         <image name="walk.png" width="42" height="42"/>

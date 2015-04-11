@@ -35,7 +35,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSearch)]];
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelSearch)];
+
+    [gestureRecognizer setCancelsTouchesInView:NO];
+
+    [self.view addGestureRecognizer:gestureRecognizer];
 
     [self initializeMap];
     [self initializeLocationManager];
