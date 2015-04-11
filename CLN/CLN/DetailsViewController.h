@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Discount.h"
+#import <MapKit/MapKit.h>
 
-@interface DetailsViewController : UIViewController
+@interface DetailsViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, retain) Discount* discount;
 

@@ -55,6 +55,20 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    FavoritesTableViewCell *cell = (FavoritesTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO];
+
+    [self performSegueWithIdentifier:@"DETAIL_FAV_SEGUE" sender:cell.discount];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"DETAIL_FAV_SEGUE"]) {
+        FavoritesTableViewCell *detVC = [segue destinationViewController];
+        detVC.discount = (Discount *)sender;
+    }
+}
+
 - (IBAction)onBackButtonPressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

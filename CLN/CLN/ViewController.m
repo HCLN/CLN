@@ -55,7 +55,7 @@
     categoriesView.layer.masksToBounds = YES;
 
     UIBarButtonItem *newBackButton =
-        [[UIBarButtonItem alloc] initWithTitle:@"Atrás"
+        [[UIBarButtonItem alloc] initWithTitle:@"Volver"
                                          style:UIBarButtonItemStyleBordered
                                         target:nil
                                         action:nil];
