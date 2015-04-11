@@ -41,6 +41,7 @@
 		8B4324CD1AD9464F001BF918 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4324C21AD9464F001BF918 /* Icon-Small.png */; };
 		8B4324CE1AD9464F001BF918 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4324C31AD9464F001BF918 /* Icon-Small@2x.png */; };
 		8B4324CF1AD9464F001BF918 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4324C41AD9464F001BF918 /* Icon-Small@3x.png */; };
+		8B4324D11AD9495A001BF918 /* Logo-Club-La-Nacion-Blanco-Grande@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4324D01AD9495A001BF918 /* Logo-Club-La-Nacion-Blanco-Grande@2x.png */; };
 		8BA947341AD84DF0002D4830 /* .clang-format in Resources */ = {isa = PBXBuildFile; fileRef = 8BA947331AD84DF0002D4830 /* .clang-format */; };
 		8BA947371AD854D6002D4830 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA947361AD854D6002D4830 /* SettingsViewController.m */; };
 		8BA9473A1AD857B5002D4830 /* SettingsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA947391AD857B5002D4830 /* SettingsTableViewCell.m */; };
@@ -131,6 +132,7 @@
 		8B4324C21AD9464F001BF918 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		8B4324C31AD9464F001BF918 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		8B4324C41AD9464F001BF918 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		8B4324D01AD9495A001BF918 /* Logo-Club-La-Nacion-Blanco-Grande@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-Club-La-Nacion-Blanco-Grande@2x.png"; sourceTree = "<group>"; };
 		8BA947331AD84DF0002D4830 /* .clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".clang-format"; sourceTree = "<group>"; };
 		8BA947351AD854D6002D4830 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		8BA947361AD854D6002D4830 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 		8B0198271AD887E1001CC463 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8B4324D01AD9495A001BF918 /* Logo-Club-La-Nacion-Blanco-Grande@2x.png */,
 				8B4324B91AD9464F001BF918 /* icons */,
 				8BD2F8F21AD8E0590054877A /* classic_card@2x.png */,
 				8BD2F8F31AD8E0590054877A /* premium_card@2x.png */,
@@ -481,6 +484,7 @@
 				8BD2F8EF1AD8DC380054877A /* mas_categorias@2x.png in Resources */,
 				8BD2F8E01AD8B3E20054877A /* notification_icon@2x.png in Resources */,
 				8B4324C51AD9464F001BF918 /* Icon-120.png in Resources */,
+				8B4324D11AD9495A001BF918 /* Logo-Club-La-Nacion-Blanco-Grande@2x.png in Resources */,
 				8B4324CD1AD9464F001BF918 /* Icon-Small.png in Resources */,
 				8BD2F8F51AD8E0590054877A /* premium_card@2x.png in Resources */,
 				8BD2F8DD1AD8B3E20054877A /* location@2x.png in Resources */,
