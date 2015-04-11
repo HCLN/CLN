@@ -113,7 +113,30 @@
 - (NSArray *)getAllDiscounts {
     NSArray *selectedArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"categories"];
     NSDate *now = [NSDate date];
-    return [Discount MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"category IN %@ AND startDate<= %@ AND endDate >= %@", selectedArray, now, now]];
+    NSArray *discounts = [Discount MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"category IN %@ AND startDate<= %@ AND endDate >= %@", selectedArray, now, now]];
+
+    NSMutableArray *arr = [NSMutableArray array];
+
+    for (Discount *d in discounts) {
+        NSString *dt = [d getDistanceInMetersLatitudeTo:[NSNumber numberWithDouble:location.coordinate.latitude] LongitudeTo:[NSNumber numberWithDouble:location.coordinate.longitude]];
+        CGFloat distance = [dt floatValue];
+        if (distance < 3000) {
+            [arr addObject:d];
+        }
+    }
+
+    [arr sortUsingComparator:^NSComparisonResult(Discount *obj1, Discount *obj2) {
+        
+        CGFloat obj1Distance = [[obj1 getDistanceInMetersLatitudeTo:
+                                [NSNumber numberWithDouble:location.coordinate.latitude]
+                                                       LongitudeTo:[NSNumber numberWithDouble:location.coordinate.longitude]] floatValue];
+        CGFloat obj2Distance = [[obj2 getDistanceInMetersLatitudeTo:
+                                 [NSNumber numberWithDouble:location.coordinate.latitude]
+                                                        LongitudeTo:[NSNumber numberWithDouble:location.coordinate.longitude]] floatValue];
+        return (obj1Distance > obj2Distance);
+    }];
+
+    return arr;
 }
 
 - (IBAction)toogleSettingsMenu:(id)sender {
@@ -215,6 +238,8 @@
         UIImage *image = [self pinImageForCategory:ann.discount.category];
         annView.annotation = annotation;
         annView.image = image;
+        annView.canShowCallout = YES;
+
         return annView;
     }
     return nil;
