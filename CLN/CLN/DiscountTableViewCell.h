@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Discount.h"
 #import "AsyncImageView.h"
+#import <MapKit/MapKit.h>
 
 @interface DiscountTableViewCell : UITableViewCell
 
 @property (nonatomic, retain) Discount* discount;
+@property (nonatomic, retain) CLLocation* location;
 
 @property (nonatomic, retain) IBOutlet UIView* categoryColorIndicatorView;
 @property (nonatomic, retain) IBOutlet UILabel* discountDescriptionLabel;
