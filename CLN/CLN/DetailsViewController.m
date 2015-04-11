@@ -59,12 +59,10 @@
     UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     shareBtn.bounds = CGRectMake(0, 0, shareImage.size.width, shareImage.size.height);
     [shareBtn setImage:shareImage forState:UIControlStateNormal];
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithImage:shareImage style:UIBarButtonItemStylePlain target:self action:@selector(addToFavorite:)];
+    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithImage:shareImage style:UIBarButtonItemStylePlain target:self action:@selector(shareDiscount:)];
 
     NSArray *myButtonArray = [[NSArray alloc] initWithObjects:favsButton, shareButton, nil];
     self.navigationItem.rightBarButtonItems = myButtonArray;
-
-    //
 
     NSString *fullURL = [NSString stringWithFormat:@"%@%@", [URLManager baseImagesURL], [self.discount getLogoPath]];
     logoImage.imageURL = [NSURL URLWithString:fullURL];
@@ -231,6 +229,17 @@
 
 - (UIImage *)pinImageForCategory:(NSString *)categoryName {
     return [ColorCategory pinForCategory:categoryName];
+}
+
+- (IBAction)onTermsButtonClick:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+
+    alert.title = @"Bases y Condiciones";
+    alert.message = @"Promoción válida en la República Argentina presentando únicamente su tarjeta Club LA NACION.\nBeneficio 20% de descuento sobre el total de tu factura, los días Lunes.\nPara obtener el beneficio el socio deberá presentar su tarjeta de Club LA NACION o Club LA NACION Premium al momento de solicitar la factura.\nEl beneficio no se superpone con otras promociones en las que intervenga otra marca o programa.\nS.A. LA NACION no tiene ninguna responsabilidad en el otorgamiento del descuento ni en relación a los productos que se adquieran, siendo el comercio el único responsable por tales cuestiones.";
+    alert.delegate = self;
+    [alert addButtonWithTitle:@"OK"];
+
+    [alert show];
 }
 
 @end
