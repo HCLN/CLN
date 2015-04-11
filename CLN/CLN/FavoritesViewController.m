@@ -27,6 +27,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    arrDiscounts = [Discount MR_findByAttribute:@"isFavorite" withValue:[NSNumber numberWithBool:YES]];
     [table reloadData];
 }
 
