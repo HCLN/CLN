@@ -12,5 +12,6 @@
 @interface ColorCategory : NSObject
 
 + (UIColor *)colorForCategory:(NSString *)categoryName;
++ (UIImage *)pinForCategory:(NSString *)categoryName;
 
 @end

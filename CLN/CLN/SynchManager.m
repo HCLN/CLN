@@ -13,14 +13,9 @@
 
 @implementation SynchManager
 
-+ (void)update {
++ (void)updateWithLatitude:(NSString *)latitude Longitude:(NSString *)longitude Distance:(NSString *)distance {
     NSString *apiURL = [URLManager apiURL];
-
-    NSString *latitude = @"-34.5332422";
-    NSString *longitude = @"-58.4672752";
-    NSString *distance = @"1200";
     NSString *url = [NSString stringWithFormat:apiURL, latitude, longitude, distance];
-    //NSString *url = @"http://localhost:8888/lala.json";
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {

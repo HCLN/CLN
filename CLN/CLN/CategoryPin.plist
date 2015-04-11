@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Gastronomía</key>
+	<string>gastronomia</string>
+	<key>Entretenimiento</key>
+	<string>entretenimiento</string>
+	<key>Turismo</key>
+	<string>turismo</string>
+	<key>Cuidado Personal</key>
+	<string>cuidado_personal</string>
+	<key>Más Categorías</key>
+	<string>mas_categorias</string>
+	<key>Moda</key>
+	<string>modas</string>
+</dict>
+</plist>

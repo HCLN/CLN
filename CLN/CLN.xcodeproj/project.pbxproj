@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6343E1E41AD8E4A400CF0A4C /* CategoryPin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6343E1E31AD8E4A400CF0A4C /* CategoryPin.plist */; };
+		6343E1E71AD8E62C00CF0A4C /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343E1E61AD8E62C00CF0A4C /* MapAnnotation.m */; };
+		6343E1E81AD8E6C900CF0A4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FDC1AD84085004B7033 /* ViewController.m */; };
+		6343E1E91AD8E7B000CF0A4C /* ColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16FE1AD878BA00E75869 /* ColorCategory.m */; };
 		63576FD71AD84085004B7033 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FD61AD84085004B7033 /* main.m */; };
 		63576FDA1AD84085004B7033 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FD91AD84085004B7033 /* AppDelegate.m */; };
-		63576FDD1AD84085004B7033 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FDC1AD84085004B7033 /* ViewController.m */; };
 		63576FE01AD84085004B7033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63576FDE1AD84085004B7033 /* Main.storyboard */; };
 		63576FE21AD84085004B7033 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63576FE11AD84085004B7033 /* Images.xcassets */; };
 		63576FE51AD84085004B7033 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63576FE31AD84085004B7033 /* LaunchScreen.xib */; };
@@ -21,7 +24,6 @@
 		63EB16F51AD864D500E75869 /* Discount.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16F41AD864D500E75869 /* Discount.m */; };
 		63EB16F91AD8745C00E75869 /* URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16F81AD8745B00E75869 /* URLManager.m */; };
 		63EB16FC1AD8770A00E75869 /* CategoryColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63EB16FB1AD8770900E75869 /* CategoryColor.plist */; };
-		63EB16FF1AD878BA00E75869 /* ColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16FE1AD878BA00E75869 /* ColorCategory.m */; };
 		63EB17021AD87B9300E75869 /* SynchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB17011AD87B9300E75869 /* SynchManager.m */; };
 		8B0198201AD87751001CC463 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B01981F1AD87751001CC463 /* FavoritesViewController.m */; };
 		8B0198231AD8775B001CC463 /* NotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B0198221AD8775B001CC463 /* NotificationsViewController.m */; };
@@ -61,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6343E1E31AD8E4A400CF0A4C /* CategoryPin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CategoryPin.plist; sourceTree = "<group>"; };
+		6343E1E51AD8E62C00CF0A4C /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		6343E1E61AD8E62C00CF0A4C /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		63576FD11AD84085004B7033 /* CLN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63576FD51AD84085004B7033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63576FD61AD84085004B7033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -262,6 +267,8 @@
 		63EB16EF1AD8632500E75869 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6343E1E51AD8E62C00CF0A4C /* MapAnnotation.h */,
+				6343E1E61AD8E62C00CF0A4C /* MapAnnotation.m */,
 				63EB16F01AD8634500E75869 /* CLN-Model.xcdatamodeld */,
 				63EB16F31AD864D500E75869 /* Discount.h */,
 				63EB16F41AD864D500E75869 /* Discount.m */,
@@ -283,6 +290,7 @@
 		63EB16FA1AD876E200E75869 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6343E1E31AD8E4A400CF0A4C /* CategoryPin.plist */,
 				63EB16FB1AD8770900E75869 /* CategoryColor.plist */,
 				63EB16FD1AD878BA00E75869 /* ColorCategory.h */,
 				63EB16FE1AD878BA00E75869 /* ColorCategory.m */,
@@ -425,6 +433,7 @@
 				8BD2F8E21AD8B3E20054877A /* share@2x.png in Resources */,
 				63576FE21AD84085004B7033 /* Images.xcassets in Resources */,
 				8BD2F8EE1AD8DC380054877A /* gastronomia@2x.png in Resources */,
+				6343E1E41AD8E4A400CF0A4C /* CategoryPin.plist in Resources */,
 				8BD2F8ED1AD8DC380054877A /* entretenimiento@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,9 +485,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6343E1E91AD8E7B000CF0A4C /* ColorCategory.m in Sources */,
+				6343E1E81AD8E6C900CF0A4C /* ViewController.m in Sources */,
 				63EB17021AD87B9300E75869 /* SynchManager.m in Sources */,
 				63EB16F51AD864D500E75869 /* Discount.m in Sources */,
-				63576FDD1AD84085004B7033 /* ViewController.m in Sources */,
+				6343E1E71AD8E62C00CF0A4C /* MapAnnotation.m in Sources */,
 				63EB16F91AD8745C00E75869 /* URLManager.m in Sources */,
 				8B0198231AD8775B001CC463 /* NotificationsViewController.m in Sources */,
 				63576FDA1AD84085004B7033 /* AppDelegate.m in Sources */,
@@ -490,7 +501,6 @@
 				8B0198261AD87A25001CC463 /* FavoritesTableViewCell.m in Sources */,
 				63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */,
 				63576FD71AD84085004B7033 /* main.m in Sources */,
-				63EB16FF1AD878BA00E75869 /* ColorCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
