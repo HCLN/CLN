@@ -214,6 +214,8 @@
         UIImage *image = [self pinImageForCategory:ann.discount.category];
         annView.annotation = annotation;
         annView.image = image;
+        annView.canShowCallout = YES;
+
         return annView;
     }
     return nil;
