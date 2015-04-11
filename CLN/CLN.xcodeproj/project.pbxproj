@@ -13,6 +13,7 @@
 		6343E1E91AD8E7B000CF0A4C /* ColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16FE1AD878BA00E75869 /* ColorCategory.m */; };
 		6343E1ED1AD8FAF800CF0A4C /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343E1EC1AD8FAF800CF0A4C /* CategoriesViewController.m */; };
 		6343E1F01AD8FB4800CF0A4C /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343E1EF1AD8FB4800CF0A4C /* CategoryCell.m */; };
+		6343E1F21AD9512900CF0A4C /* route920581.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 6343E1F11AD9512900CF0A4C /* route920581.gpx */; };
 		63576FD71AD84085004B7033 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FD61AD84085004B7033 /* main.m */; };
 		63576FDA1AD84085004B7033 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FD91AD84085004B7033 /* AppDelegate.m */; };
 		63576FE01AD84085004B7033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63576FDE1AD84085004B7033 /* Main.storyboard */; };
@@ -87,6 +88,7 @@
 		6343E1EC1AD8FAF800CF0A4C /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		6343E1EE1AD8FB4800CF0A4C /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		6343E1EF1AD8FB4800CF0A4C /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		6343E1F11AD9512900CF0A4C /* route920581.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = route920581.gpx; sourceTree = "<group>"; };
 		63576FD11AD84085004B7033 /* CLN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63576FD51AD84085004B7033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63576FD61AD84085004B7033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		63EB16FA1AD876E200E75869 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6343E1F11AD9512900CF0A4C /* route920581.gpx */,
 				6343E1E31AD8E4A400CF0A4C /* CategoryPin.plist */,
 				63EB16FB1AD8770900E75869 /* CategoryColor.plist */,
 				63EB16FD1AD878BA00E75869 /* ColorCategory.h */,
@@ -482,6 +485,7 @@
 				8BD2F8DB1AD8B3E20054877A /* like-filled@2x.png in Resources */,
 				8BD2F8F11AD8DC380054877A /* turismo@2x.png in Resources */,
 				8BD2F8EF1AD8DC380054877A /* mas_categorias@2x.png in Resources */,
+				6343E1F21AD9512900CF0A4C /* route920581.gpx in Resources */,
 				8BD2F8E01AD8B3E20054877A /* notification_icon@2x.png in Resources */,
 				8B4324C51AD9464F001BF918 /* Icon-120.png in Resources */,
 				8B4324D11AD9495A001BF918 /* Logo-Club-La-Nacion-Blanco-Grande@2x.png in Resources */,

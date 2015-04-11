@@ -3,17 +3,22 @@
 
     <wpt lat="-34.5804974" lon="-58.4086617">
          <name>Hotel</name>
+         <time>2014-11-07T11:22:24Z</time>
 	</wpt>
     <wpt lat="-34.5812027" lon="-58.4208834">
         <name>Plaza Italia</name>
+        <time>2014-11-07T11:22:34Z</time>
     </wpt>
     <wpt lat="-34.591043" lon="-58.4240318">
         <name>Juan B Justo y Corrientes</name>
+        <time>2014-11-07T11:22:44Z</time>
     </wpt>
     <wpt lat="-34.603990" lon="-58.410986">
         <name>Abasto</name>
+        <time>2014-11-07T11:22:54Z</time>
     </wpt>
     <wpt lat="-34.6158527" lon="-58.4333203">
         <name>Obelisco</name>
+        <time>2014-11-07T11:23:04Z</time>
     </wpt>
 </gpx>
