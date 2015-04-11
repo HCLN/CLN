@@ -11,6 +11,8 @@
 		6343E1E71AD8E62C00CF0A4C /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343E1E61AD8E62C00CF0A4C /* MapAnnotation.m */; };
 		6343E1E81AD8E6C900CF0A4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FDC1AD84085004B7033 /* ViewController.m */; };
 		6343E1E91AD8E7B000CF0A4C /* ColorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EB16FE1AD878BA00E75869 /* ColorCategory.m */; };
+		6343E1ED1AD8FAF800CF0A4C /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343E1EC1AD8FAF800CF0A4C /* CategoriesViewController.m */; };
+		6343E1F01AD8FB4800CF0A4C /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343E1EF1AD8FB4800CF0A4C /* CategoryCell.m */; };
 		63576FD71AD84085004B7033 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FD61AD84085004B7033 /* main.m */; };
 		63576FDA1AD84085004B7033 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 63576FD91AD84085004B7033 /* AppDelegate.m */; };
 		63576FE01AD84085004B7033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63576FDE1AD84085004B7033 /* Main.storyboard */; };
@@ -69,6 +71,10 @@
 		6343E1E51AD8E62C00CF0A4C /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		6343E1E61AD8E62C00CF0A4C /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 		6343E1EA1AD8F5AF00CF0A4C /* LocationDemo.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationDemo.gpx; sourceTree = "<group>"; };
+		6343E1EB1AD8FAF800CF0A4C /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
+		6343E1EC1AD8FAF800CF0A4C /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
+		6343E1EE1AD8FB4800CF0A4C /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		6343E1EF1AD8FB4800CF0A4C /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		63576FD11AD84085004B7033 /* CLN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CLN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63576FD51AD84085004B7033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63576FD61AD84085004B7033 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -252,6 +258,8 @@
 				8B0198221AD8775B001CC463 /* NotificationsViewController.m */,
 				8BD2F8CC1AD8A6880054877A /* DetailsViewController.h */,
 				8BD2F8CD1AD8A6880054877A /* DetailsViewController.m */,
+				6343E1EB1AD8FAF800CF0A4C /* CategoriesViewController.h */,
+				6343E1EC1AD8FAF800CF0A4C /* CategoriesViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -265,6 +273,8 @@
 				8BA947391AD857B5002D4830 /* SettingsTableViewCell.m */,
 				8B0198241AD87A25001CC463 /* FavoritesTableViewCell.h */,
 				8B0198251AD87A25001CC463 /* FavoritesTableViewCell.m */,
+				6343E1EE1AD8FB4800CF0A4C /* CategoryCell.h */,
+				6343E1EF1AD8FB4800CF0A4C /* CategoryCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -496,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6343E1E91AD8E7B000CF0A4C /* ColorCategory.m in Sources */,
+				6343E1F01AD8FB4800CF0A4C /* CategoryCell.m in Sources */,
 				6343E1E81AD8E6C900CF0A4C /* ViewController.m in Sources */,
 				63EB17021AD87B9300E75869 /* SynchManager.m in Sources */,
 				63EB16F51AD864D500E75869 /* Discount.m in Sources */,
@@ -508,6 +519,7 @@
 				8B0198201AD87751001CC463 /* FavoritesViewController.m in Sources */,
 				8BA9473A1AD857B5002D4830 /* SettingsTableViewCell.m in Sources */,
 				8BA947371AD854D6002D4830 /* SettingsViewController.m in Sources */,
+				6343E1ED1AD8FAF800CF0A4C /* CategoriesViewController.m in Sources */,
 				8B0198261AD87A25001CC463 /* FavoritesTableViewCell.m in Sources */,
 				63EB16EE1AD84B2700E75869 /* DiscountTableViewCell.m in Sources */,
 				63576FD71AD84085004B7033 /* main.m in Sources */,

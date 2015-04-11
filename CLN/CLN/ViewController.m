@@ -63,6 +63,8 @@
     [[self navigationItem] setBackBarButtonItem:newBackButton];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:@"NOTIFICATIONS_HAS_BEEN_UPDATED" object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateData) name:@"CATEGORIES_HAS_CHANGED" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -108,7 +110,9 @@
 }
 
 - (NSArray *)getAllDiscounts {
-    return [Discount MR_findAll];
+    NSArray *selectedArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"categories"];
+    NSDate *now = [NSDate date];
+    return [Discount MR_findAllWithPredicate:[NSPredicate predicateWithFormat:@"category IN %@ AND startDate<= %@ AND endDate >= %@", selectedArray, now, now]];
 }
 
 - (IBAction)toogleSettingsMenu:(id)sender {
@@ -224,6 +228,11 @@
         DetailsViewController *detVC = [segue destinationViewController];
         detVC.discount = (Discount *)sender;
     }
+}
+
+#pragma MARK - Categories
+- (IBAction)onBtCategoriesTouchDown:(id)sender {
+    [self performSegueWithIdentifier:@"OPEN_SETTINGS_SEGUE" sender:self];
 }
 
 @end

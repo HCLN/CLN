@@ -55,16 +55,17 @@
     }];
 }
 
--
-    (void)applicationDidEnterBackground:(UIApplication *)application {
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
+
     [self stopLocationManager];
     [self startMonitoringLocationChanges];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application{}
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+}
 
-                                       - (void)
-            applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidBecomeActive:(UIApplication *)application {
     [self stopLocationManager];
     [self initLocationManager];
     [self startMonitoringLocationChanges];
