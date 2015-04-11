@@ -7,6 +7,7 @@
 //
 
 #import "Discount.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation Discount
 
@@ -77,6 +78,15 @@
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"YYYY-MM-dd'T'HH:mm:ss.SSS'Z'"];
     return [formatter dateFromString:dateString];
+}
+
+- (NSString*)getDistanceInMetersLatitudeTo:(NSNumber*)latTo
+                               LongitudeTo:(NSNumber*)longTo {
+    CLLocation* location1 = [[CLLocation alloc] initWithLatitude:[self.pointLatitude doubleValue]
+                                                       longitude:[self.pointLongitude doubleValue]];
+
+    CLLocation* location2 = [[CLLocation alloc] initWithLatitude:[latTo doubleValue] longitude:[longTo doubleValue]];
+    return [NSString stringWithFormat:@"%.0f", [location1 distanceFromLocation:location2]];
 }
 
 @end

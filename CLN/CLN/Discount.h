@@ -28,5 +28,6 @@
 
 - (void)setupFromDictionary:(NSDictionary *)dictionary;
 - (NSString *)getLogoPath;
-
+- (NSString *)getDistanceInMetersLatitudeTo:(NSNumber *)latTo
+                                LongitudeTo:(NSNumber *)longTo;
 @end
