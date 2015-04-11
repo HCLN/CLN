@@ -225,4 +225,9 @@
     }
 }
 
+#pragma MARK - Categories
+- (IBAction)onBtCategoriesTouchDown:(id)sender {
+    [self performSegueWithIdentifier:@"OPEN_SETTINGS_SEGUE" sender:self];
+}
+
 @end
