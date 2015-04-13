@@ -58,7 +58,7 @@
     NSNumber *ratio = [[NSUserDefaults standardUserDefaults] objectForKey:@"ratio"];
     if (!ratio) {
         [[NSUserDefaults standardUserDefaults] setValue:
-                                                   @300
+                                                   @3000
                                                  forKey:@"ratio"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
